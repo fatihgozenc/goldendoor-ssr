@@ -24,7 +24,12 @@ app.use(express.static('public'));
 
 app.get('*', (req, res) => {
 
+	//console.log(req.headers)
 	const store = createStore(req);
+
+	const cookies = require('cookie-universal')(req, res);
+	cookies.set('lang', 'de');
+
 	const promises = matchRoutes(Routes, req.path).map(({route}) => {
 		return route.loadData ? route.loadData(store) : null;
 	}).map(promise => {

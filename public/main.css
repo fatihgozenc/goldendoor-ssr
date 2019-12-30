@@ -1,3 +1,97 @@
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
 body {
-  background: green; }
+  margin: 0;
+  padding: 0;
+  font-size: 1.4rem;
+  font-family: 'Lato', sans-serif;
+  color: #C2AC84; }
+
+a {
+  color: inherit; }
+
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer; }
+  button:focus {
+    outline: none; }
+
+.frame {
+  position: relative;
+  border-left: 2px solid #C2AC84;
+  border-right: 2px solid #C2AC84;
+  border-bottom: 2px solid #C2AC84;
+  height: 90%;
+  width: 92%;
+  transform: translate(-50%, -50%);
+  top: 52%;
+  left: 50%; }
+  @media (min-width: 992px) {
+    .frame {
+      width: 96%; } }
+
+.header {
+  width: 100%;
+  position: fixed;
+  height: 100%;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, #160e22 3%, transparent 20%); }
+
+.menutoggler rect {
+  fill: #C2AC84; }
+
+.logoarea {
+  display: flex;
+  justify-content: space-between; }
+  .logoarea #logo {
+    transform: translateY(-50%);
+    cursor: pointer;
+    pointer-events: all; }
+    .logoarea #logo img {
+      height: 8rem; }
+      @media (min-width: 576px) {
+        .logoarea #logo img {
+          height: 10rem; } }
+      @media (min-width: 992px) {
+        .logoarea #logo img {
+          height: 12rem; } }
+  .logoarea .panel {
+    flex: .48;
+    height: 100%;
+    border-top: 2px solid #C2AC84;
+    padding: 3%; }
+    @media (min-width: 992px) {
+      .logoarea .panel {
+        padding: 1.6%; } }
+    .logoarea .panel button {
+      display: block;
+      pointer-events: all;
+      font-size: 1.7rem; }
+  .logoarea .panel__menu button {
+    float: right; }
+
+.nav {
+  height: 100%;
+  position: absolute;
+  background-image: linear-gradient(to top, #000 50%, transparent 250%);
+  width: 100%;
+  pointer-events: all; }
+
+.nav__opening {
+  transform: translateY(0); }
+
+.nav__opened {
+  background-image: linear-gradient(to top, #000 50%, transparent 250%); }
+
+body {
+  background: linear-gradient(45deg, #2D1D46, #632948); }
 

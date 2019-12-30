@@ -8,7 +8,6 @@ const App = ({route}) => {
 
 	const layoutData = useSelector(state => state.layout);
 
-	console.log(layoutData)
 	return (
 		<Layout layoutData={layoutData}>
 			{renderRoutes(route.routes)}

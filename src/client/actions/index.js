@@ -2,9 +2,9 @@
 // IMPORT AXIOS LIB
 
 export const FETCH_LAYOUT = 'fetch_layout';
-export const fetchLayout = () => async (dispatch, getState, api) => {
+export const fetchLayout = () => async (dispatch, getState, axiosInstance) => {
 
-	const res = await api.get('/layout');
+	const res = await axiosInstance.get('/layout');
 
 	dispatch({
 		type: FETCH_LAYOUT,
@@ -13,9 +13,9 @@ export const fetchLayout = () => async (dispatch, getState, api) => {
 };
 
 export const FETCH_USERS = 'fetch_users';
-export const fetchUsers = () => async (dispatch, getState, api) => {
+export const fetchUsers = () => async (dispatch, getState, axiosInstance) => {
 
-	const res = await api.get('/users');
+	const res = await axiosInstance.get('/users');
 
 	dispatch({
 		type: FETCH_USERS,

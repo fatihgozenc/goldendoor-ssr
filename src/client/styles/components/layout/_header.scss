@@ -1,0 +1,7 @@
+.header {
+	width: 100%;
+    position: fixed;
+	height: 100%;
+	pointer-events: none;
+	background-image: linear-gradient(to bottom,  darken($lila ,10%) 3%, transparent 20%)
+}

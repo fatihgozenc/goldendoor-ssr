@@ -1,3 +1,9 @@
+@import 'abstracts/colors';
+@import 'abstracts/breakpoints';
+@import 'abstracts/base';
+
+@import 'components/layout/styles';
+
 body {
-	background: green;
+	background: $grad;
 }

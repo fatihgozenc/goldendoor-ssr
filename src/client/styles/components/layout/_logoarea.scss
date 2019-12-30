@@ -1,0 +1,40 @@
+.logoarea {
+	display: flex;
+	justify-content: space-between;
+
+	#logo {
+		transform: translateY(-50%);
+		cursor: pointer;
+		pointer-events: all;
+
+		img {
+			height: 8rem;
+			@include sm {
+				height: 10rem;
+			}
+			@include lg {
+				height: 12rem;
+			}
+		}
+	}
+
+	.panel {
+		flex: .48;
+		height: 100%;
+		border-top: 2px solid $gold;
+		padding: 3%;
+		
+		@include lg {
+			padding: 1.6%;
+		}
+		button {
+			display: block;
+			pointer-events: all;
+			font-size: 1.7rem;
+		}
+	}
+
+	.panel__menu button {
+        float: right;
+	}
+}

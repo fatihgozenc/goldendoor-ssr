@@ -7,7 +7,7 @@ import serialize from 'serialize-javascript';
 import {Helmet} from 'react-helmet';
 import Routes from '../client/Routes';
 
-export default (req, store, context, preloadedState) => {
+export default (req, store, context) => {
 	const content = renderToString(
 		<Provider store={store}>
 			<StaticRouter location={req.path} context={context}>
@@ -23,6 +23,8 @@ export default (req, store, context, preloadedState) => {
 			<head>
 				${helmet.title.toString()}
 				${helmet.meta.toString()}
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<link href="https://fonts.googleapis.com/css?family=Lato:400,900|Noto+Serif:400,700&display=swap" rel="stylesheet">
 				<link href="data:image/x-icon;" rel="shortcut icon" />
 				<link rel="stylesheet" type="text/css" href="main.css">
 			</head>
