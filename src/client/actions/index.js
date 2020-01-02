@@ -1,6 +1,5 @@
 // IF U WANT TO ACCESS ANOTHER API,
 // IMPORT AXIOS LIB
-
 export const FETCH_LAYOUT = 'fetch_layout';
 export const fetchLayout = () => async (dispatch, getState, axiosInstance) => {
 
@@ -11,6 +10,18 @@ export const fetchLayout = () => async (dispatch, getState, axiosInstance) => {
 		payload: res
 	});
 };
+
+export const FETCH_HOME = 'fetch_home';
+export const fetchHome = () => async (dispatch, getState, axiosInstance) => {
+
+	const res = await axiosInstance.get('/home');
+
+	dispatch({
+		type: FETCH_HOME,
+		payload: res
+	});
+};
+
 
 export const FETCH_USERS = 'fetch_users';
 export const fetchUsers = () => async (dispatch, getState, axiosInstance) => {

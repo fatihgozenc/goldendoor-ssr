@@ -4,12 +4,12 @@ import {useSelector} from 'react-redux';
 import {fetchLayout} from './actions';
 import Layout from './Layout';
 
-const App = ({route}) => {
+const App = ({route, match, history, location}) => {
 
 	const layoutData = useSelector(state => state.layout);
 
 	return (
-		<Layout layoutData={layoutData}>
+		<Layout layoutData={layoutData} match={match} history={history} location={location}>
 			{renderRoutes(route.routes)}
 		</Layout>
 	)

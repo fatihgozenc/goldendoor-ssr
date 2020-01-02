@@ -1,0 +1,148 @@
+.footer {
+  font-size: .95rem;
+  line-height: 1.6;
+  text-align: center;
+  padding: 8% 0;
+
+  a {
+    display: block;
+  }
+
+  @include md{
+    padding: 4%;
+  }
+
+  @include lg {
+    text-align: initial;
+  }
+
+  @include xl {
+    width: 100%;
+    padding: 16% 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
+
+}
+
+.footer__block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @include lg {
+    flex-direction: row;
+    align-items: center;
+    
+    .footer__block__item {
+      padding: initial;
+    }
+  }
+}
+
+.footer__block:first-child{
+  @include lg {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $gold;
+  }
+}
+
+.footer__block:last-child{
+  @include lg {
+    padding-top: 2rem;
+  }
+}
+
+.footer__routes {
+  display: flex;
+  padding: 2rem 0;
+
+  .footer__routes--item {
+    @include display_text;
+    padding: .5rem 0;
+
+    @include lg {
+      padding: initial;
+    }
+  }
+}
+
+.footer__routes--block:last-child{
+  padding-left: 5rem;
+}
+
+.copyright {
+  font-size: .7em;
+}
+
+.footer__submarken {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  @include lg {
+    flex-direction: row;
+    
+  }
+}
+
+.footer__block__item:first-child{
+  padding: initial;
+
+  img {
+    width: 10rem;
+  }
+}
+
+#footer--logo {
+  padding: initial;
+}
+
+#submarken--text {
+  padding: initial !important;
+  font-size: .8em;
+}
+
+.footer__submarken--block {
+  padding: 0 2rem;
+
+  @include md {
+    display: flex;
+    padding: 0 0 2rem 0;
+  }
+  @include lg {
+    padding: initial;
+  }
+}
+
+.footer__submarken--wrapper{
+  display: flex;
+  @include md{
+    flex-direction: column;
+  }
+  @include lg{
+    flex-direction: row;
+  }
+}
+
+.footer__submarken--item, .footer__block__item {
+  @include display_text;
+  img {
+    width: 10rem;
+
+    @include lg{
+      width: 4rem;
+    }
+
+    @include xl {
+      width: 7rem;
+    }
+  }
+  @include md {
+    padding: 0 2rem;
+  }
+}

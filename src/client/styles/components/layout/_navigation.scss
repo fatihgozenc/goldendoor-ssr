@@ -1,18 +1,87 @@
 .nav {
-    // display: none;
+    display: flex;
     height: 100%;
     position: absolute;
-    //background-image: linear-gradient(to top, #000 35%, transparent 100%);
-    background-image: linear-gradient(to top, #000 50%, transparent 250%);
+    background-image: linear-gradient(to top,  #000 40%, rgba(0, 0, 0, 0.8) 86%, transparent 100%);
     width: 100%;
     pointer-events: all;
-    //transform: translateY(100%);
+    transform: translateY(100%);
+    transition: .5s all cubic-bezier(.53,.01,.49,.99);
+
+    @include md {
+        align-items: center;
+    }
+   
+}
+
+.nav__wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    width: 90%;
+    margin: 10rem 0 4rem 0;
+    padding-left: 25vw;
+
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    ul, li {
+        list-style: none;
+        padding: 2rem 0 0 0;
+    } 
+
+    ul {
+        opacity: 0;
+        transition: .8s all cubic-bezier(.53,.01,.49,.99);
+        transform: translateX(16%) skew(5deg);
+    }
+
+    li > .nav__child--sub {
+        padding: 0 0 0 1rem;
+        &:before{
+            content: '•';
+            margin-right: 1rem;
+        }
+    }
+
+    @include md {
+        padding: unset;
+        overflow-y: unset;
+        margin: 16% 0 0 0;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+        transform: scale(.9);
+    }
+
+    @include lg {
+        transform: unset;
+    }
+}
+
+.nav__parent {
+    font-size: 2rem;
+    @include title;
+    padding: .8rem 0;
+    border-bottom: 1px $gold solid;
+}
+
+.nav__child {
+    @include display_text;
 }
 
 .nav__opening {
     transform: translateY(0);
 }
 
+.nav__child--appear {
+    opacity: 1 !important;
+    transform: translateX(0) skew(0) !important;
+}
+
 .nav__opened {
+    transition: .5s all ease;
     background-image: linear-gradient(to top, #000 50%, transparent 250%);
 }

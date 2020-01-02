@@ -1,0 +1,15 @@
+@mixin title {
+  font-weight: bold;
+  font-family: 'Noto Serif';
+}
+
+@mixin display_text {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.backgroundImg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

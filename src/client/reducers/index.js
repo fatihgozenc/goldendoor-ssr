@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import usersReducer from './usersReducer';
 import layoutReducer from './layoutReducer';
+import homeReducer from './homeReducer';
 
 export default combineReducers({
-//	users: usersReducer,
-	layout: layoutReducer
+	layout: layoutReducer,
+	home: homeReducer
 });

@@ -1,9 +1,8 @@
 @import 'abstracts/colors';
 @import 'abstracts/breakpoints';
 @import 'abstracts/base';
+@import 'abstracts/typography';
+@import 'abstracts/mixins';
 
 @import 'components/layout/styles';
-
-body {
-	background: $grad;
-}
+@import 'components/home';
