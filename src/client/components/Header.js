@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import Cookie from 'cookie-universal';
 import MenuToggler from './MenuToggler';
+import MenuMailer from './MenuMailer';
 
 const cookies = Cookie();
 
@@ -32,22 +32,22 @@ const Header = ({data, logo, lang, pathname}) => {
           data.map(item => {
             return (
               <ul key={item.id}>
-                <Link to={item.url} className="nav__parent">{item.title}</Link>
+                <a href={item.url} className="nav__parent">{item.title}</a>
                 {item.children !== null &&
                   item.children.map(subItem => ( 
                     (subItem.children !== null)
                       ? (
                         <ul key={subItem.id}>
-                          <Link to={subItem.url} className="nav__child">{subItem.title}</Link>
+                          <a href={subItem.url} className="nav__child">{subItem.title}</a>
                           {subItem.children.map(subItemChild => (
                             <li key={subItemChild.id}>
-                              <Link className="nav__child nav__child--sub" to={subItemChild.url}>{subItemChild.title}</Link>
+                              <a className="nav__child nav__child--sub" to={subItemChild.url}>{subItemChild.title}</a>
                             </li>
                           ))}
                         </ul>
                       ) : (
                         <li key={subItem.id}>
-                          <Link to={subItem.url} className="nav__child">{subItem.title}</Link>
+                          <a href={subItem.url} className="nav__child">{subItem.title}</a>
                         </li>
                       )
                   ))
@@ -73,6 +73,10 @@ const Header = ({data, logo, lang, pathname}) => {
             </button>
           </div>
         </div>
+        <a href="#newsletter" className="menuMailer" >
+          <MenuMailer/>
+        </a>
+        
       </div>
     </header>
   )

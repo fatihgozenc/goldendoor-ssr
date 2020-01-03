@@ -24,6 +24,10 @@
     font-size: 1.1rem;
   }
 
+  @include xxl {
+    max-width: 1600px;
+  }
+
 }
 
 .footer__block {
@@ -140,6 +144,10 @@
 
     @include xl {
       width: 7rem;
+    }
+
+    @include xxl {
+      width: 10rem;
     }
   }
   @include md {

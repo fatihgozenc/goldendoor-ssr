@@ -1,0 +1,8 @@
+.title__lg {
+  font-size: 3.2rem;
+  @include title;
+}
+
+.text {
+  @include text;
+}

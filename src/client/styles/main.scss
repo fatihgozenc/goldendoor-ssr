@@ -1,8 +1,12 @@
 @import 'abstracts/colors';
 @import 'abstracts/breakpoints';
 @import 'abstracts/base';
-@import 'abstracts/typography';
 @import 'abstracts/mixins';
+@import 'abstracts/typography';
 
 @import 'components/layout/styles';
+@import 'components/homeslider';
+@import 'components/opening';
 @import 'components/home';
+@import 'components/hero';
+@import 'components/aboutus';

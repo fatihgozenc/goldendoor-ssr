@@ -1,7 +1,8 @@
 .header {
 	width: 100%;
 	position: fixed;
+	z-index: 3;
 	height: 100%;
 	pointer-events: none;
-	background-image: linear-gradient(to bottom,  darken($lila ,10%) 8%, transparent 25%)
+	background-image: linear-gradient(to bottom,  darken($lila ,10%) 8%, transparent 20%)
 }

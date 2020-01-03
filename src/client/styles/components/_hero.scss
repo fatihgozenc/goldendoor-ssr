@@ -1,0 +1,79 @@
+.hero__img {
+  height: 48vh;
+  @include md {
+    height: 75vh;
+  }
+
+  @include lg {
+    height: 65vh;
+  }
+
+  @include xl {
+    height: 75vh;
+  }
+}
+
+.hero {
+  h1 {
+    font-family: "Noto Serif";
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 1rem 0;
+
+    @include lg {
+      font-size: 3.2rem;
+    }
+
+    @include lg {
+      font-size: 3.6rem;
+    }
+  }
+}
+
+.hero__breadcrumb {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: .85em;
+}
+
+.hero__opening{
+  margin: 8%;
+
+  @include md {
+    margin: 4% 8%;
+    display: flex;
+  }
+
+  @include xl {
+    max-width: 1140px;
+    margin: 2% auto 4% auto;
+  }
+
+  @include xxl {
+    max-width: 1440px;
+  }
+}
+
+.hero__opening--title {
+  flex: 35%;
+}
+
+.hero__opening--excerpt{
+  margin: 0;
+  flex: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include text;
+}
+
+.hero__scroll, .scroller{
+  text-align: center;
+  font-family: "Lato";
+  letter-spacing: 2px;
+  font-size: .8em;
+
+  span {
+    display: block;
+  }
+}

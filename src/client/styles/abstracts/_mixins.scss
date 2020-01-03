@@ -8,6 +8,11 @@
   text-transform: uppercase;
 }
 
+@mixin text {
+  line-height: 1.6;
+  font-family: "Noto Serif";
+}
+
 .backgroundImg {
   background-size: cover;
   background-repeat: no-repeat;

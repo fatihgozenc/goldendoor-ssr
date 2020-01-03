@@ -23,14 +23,17 @@
   }
 
   @include md {
+    padding: 16% 8% 0 8%;
     flex-direction: row;
-    padding: 0 4%;
   }
 
   @include xl {
-    padding: initial;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1140px;
+    margin: 4% auto;
+  }
+
+  @include xxl {
+    max-width: 1600px;
   }
 }
 
@@ -49,12 +52,13 @@
 
 .newsletter__form--field{
   padding: 5% 0;
+  flex: 1;
 }
 
 .newsletter__datenschutz {
   p {
     font-family: 'Noto Serif';
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -63,5 +67,15 @@
 
   input {
     flex: 1;
+  }
+}
+
+.newsletter__form--block {
+  @include xl {
+    display: flex;
+
+    .newsletter__form--field:nth-child(2) {
+      padding-left: 5%;
+    }
   }
 }

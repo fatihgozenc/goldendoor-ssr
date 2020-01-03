@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 const Newsletter = ({data}) => {
 
   return (
-    <div className="newsletter">
+    <div id="newsletter" className="newsletter">
 
       <div className="newsletter__block">
         <h3>Newsletter</h3>

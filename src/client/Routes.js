@@ -1,7 +1,8 @@
-import React from 'react';
 import App from './App';
 import HomePage from './pages/HomePage';
-import UsersPage from './pages/UsersPage';
+import AboutUsPage from './pages/AboutUsPage';
+import LocationsPage from './pages/LocationsPage';
+// import LocationPage from './pages/LocationPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 export default [
@@ -14,9 +15,18 @@ export default [
 				exact: true
 			},
 			{
-				...UsersPage,
-				path: '/users',
+				...AboutUsPage,
+				path: ["/uber-uns", "/about-us"]
 			},
+			{
+				...LocationsPage,
+				path: ["/locations", "/locations-en"]
+			},
+			// {
+			// 	...LocationPage,
+			// 	path: ["/locations/:slug", "/locations-en/:slug"],
+			// 	exact: true
+			// },
 			{
 				...NotFoundPage
 			}
