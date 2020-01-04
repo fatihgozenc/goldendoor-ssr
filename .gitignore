@@ -1,1 +1,4 @@
 /node_modules
+/build
+/public/main.css
+/public/bundle.js
