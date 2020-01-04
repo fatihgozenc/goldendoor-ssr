@@ -16,10 +16,8 @@ app.get('*', (req, res) => {
 
 	let lang = req.headers.cookie === 'lang=en' ? 'en' : 'de';
 
-	console.log(req.path)
-
 	const store = createStore(req, lang);
-
+	
 	const promises = matchRoutes(Routes, req.path).map(({route}) => {
 		return route.loadData ? route.loadData(store) : null;
 	}).map(promise => {

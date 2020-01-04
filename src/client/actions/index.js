@@ -34,7 +34,6 @@ export const fetchAboutUs = () => async (dispatch, getState, axiosInstance) => {
 
 export const FETCH_LOCATIONS = 'fetch_locations';
 export const fetchLocations = () => async (dispatch, getState, axiosInstance) => {
-	console.log(axiosInstance)
 
 	const res = await axiosInstance.get('/locations');
 
@@ -44,6 +43,25 @@ export const fetchLocations = () => async (dispatch, getState, axiosInstance) =>
 	});
 };
 
+function getLocationSlug(language, slug){
+	const slugPattern = /(\/.*)(\/.*)/i;
+	const filteredSlug = slug.match(slugPattern)[2];
+	return language === 'en' ? filteredSlug + '-en' : filteredSlug;
+}
+
+export const FETCH_LOCATION = 'fetch_location';
+export const fetchLocation = () => async (dispatch, getState, axiosInstance) => {
+
+	const slug = getLocationSlug(axiosInstance.defaults.params.language, axiosInstance.defaults.params.slug)
+	console.log(slug)
+
+	const res = await axiosInstance.get(`/locations${slug}`);
+
+	dispatch({
+		type: FETCH_LOCATION,
+		payload: res
+	});
+};
 
 
 export const FETCH_USERS = 'fetch_users';

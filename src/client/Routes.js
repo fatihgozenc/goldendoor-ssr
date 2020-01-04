@@ -2,7 +2,7 @@ import App from './App';
 import HomePage from './pages/HomePage';
 import AboutUsPage from './pages/AboutUsPage';
 import LocationsPage from './pages/LocationsPage';
-// import LocationPage from './pages/LocationPage';
+import LocationPage from './pages/LocationPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 export default [
@@ -20,13 +20,14 @@ export default [
 			},
 			{
 				...LocationsPage,
-				path: ["/locations", "/locations-en"]
+				path: ["/locations", "/locations-en" ],
+				exact: true
 			},
-			// {
-			// 	...LocationPage,
-			// 	path: ["/locations/:slug", "/locations-en/:slug"],
-			// 	exact: true
-			// },
+			{
+				...LocationPage,
+				path: ["/locations/:slug", "/locations-en/:slug"],
+				exact: true
+			},
 			{
 				...NotFoundPage
 			}

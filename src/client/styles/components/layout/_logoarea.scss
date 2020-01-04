@@ -1,6 +1,13 @@
 .logoarea {
 	display: flex;
 	justify-content: space-between;
+	height: 8rem;
+	@include md {
+		height: 10rem;
+	}
+	@include lg {
+		height: 12rem;
+	}
 }
 
 #logo {
@@ -10,7 +17,7 @@
 
 	img {
 		height: 8rem;
-		@include sm {
+		@include md {
 			height: 10rem;
 		}
 		@include lg {

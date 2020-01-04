@@ -1,12 +1,14 @@
 import React from 'react';
+import Breadcrumb from './Breadcrumb';
 
 const Hero = ({data}) => {
   return (
+    <>
     <div className="hero">
       <div className="hero__img backgroundImg" style={{backgroundImage: "url(" + data.image + ")"}} />
       <div className="hero__opening">
         <div className="hero__opening--title">
-          <span className="hero__breadcrumb"><a href="/">HOME</a> > <a href={data.slug}>{data.title}</a></span>
+          <Breadcrumb slug={data.slug} title={data.title}/>
           <h1>{data.title}</h1>
         </div>
         <div className="hero__opening--excerpt">
@@ -15,6 +17,7 @@ const Hero = ({data}) => {
         </div>
       </div>
     </div>
+    </>
   )
 };
 

@@ -65,7 +65,16 @@
     font-size: 2rem;
     @include title;
     padding: .8rem 0;
-    border-bottom: 1px $gold solid;
+    position: relative;
+
+    &::after {
+        content: "";
+        border-bottom: 1px solid $gold;
+        position: absolute;
+        bottom: 0;
+        width: 4rem;
+        left: 0;
+    }
 }
 
 .nav__child {

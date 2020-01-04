@@ -41,7 +41,7 @@ const Header = ({data, logo, lang, pathname}) => {
                           <a href={subItem.url} className="nav__child">{subItem.title}</a>
                           {subItem.children.map(subItemChild => (
                             <li key={subItemChild.id}>
-                              <a className="nav__child nav__child--sub" to={subItemChild.url}>{subItemChild.title}</a>
+                              <a className="nav__child nav__child--sub" href={subItemChild.url}>{subItemChild.title}</a>
                             </li>
                           ))}
                         </ul>
