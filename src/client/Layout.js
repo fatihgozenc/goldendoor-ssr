@@ -5,8 +5,6 @@ import Newsletter from './components/Newsletter';
 import './styles/main.scss';
 
 const Layout = (props) => {
-	
-	//console.log(typeof window !== 'undefined' ? 'client' : 'server')
 
 	return(
 		<>

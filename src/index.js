@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 3000;
 
 app.use(compression());
 app.use(express.static('public'));
-
 app.get('*', (req, res) => {
 
 	let lang = req.headers.cookie === 'lang=en' ? 'en' : 'de';

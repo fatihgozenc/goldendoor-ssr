@@ -53,7 +53,6 @@ export const FETCH_LOCATION = 'fetch_location';
 export const fetchLocation = () => async (dispatch, getState, axiosInstance) => {
 
 	const slug = getLocationSlug(axiosInstance.defaults.params.language, axiosInstance.defaults.params.slug)
-	console.log(slug)
 
 	const res = await axiosInstance.get(`/locations${slug}`);
 

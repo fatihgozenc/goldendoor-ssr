@@ -7,8 +7,6 @@ const LocationsPage = () => {
 
   const data = useSelector(state => state.locations);
 
-  console.log(data)
-  
   return (
     <>
     <div className="page__title">
