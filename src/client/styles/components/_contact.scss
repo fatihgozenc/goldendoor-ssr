@@ -1,0 +1,42 @@
+.contact {
+  margin: 0 8%;
+}
+
+.contact__stepslider {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 100%;
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $gold;
+    z-index: -1;
+  }
+}
+
+.contact__stepslider--ellipse{
+  background: $gold;
+  color: #fff;
+  border: $gold 2px solid;
+  border-radius: 100px;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-size: 1.1rem;
+  }
+}
+
+.activeStep {
+  background: #000;
+}

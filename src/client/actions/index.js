@@ -63,13 +63,13 @@ export const fetchLocation = () => async (dispatch, getState, axiosInstance) => 
 };
 
 
-export const FETCH_USERS = 'fetch_users';
-export const fetchUsers = () => async (dispatch, getState, axiosInstance) => {
+export const FETCH_CONTACT = 'fetch_contact';
+export const fetchContact = () => async (dispatch, getState, axiosInstance) => {
 
-	const res = await axiosInstance.get('/users');
+	const res = await axiosInstance.get('/contact');
 
 	dispatch({
-		type: FETCH_USERS,
+		type: FETCH_CONTACT,
 		payload: res
 	});
 };

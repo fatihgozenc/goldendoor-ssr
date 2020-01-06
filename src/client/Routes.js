@@ -1,6 +1,7 @@
 import App from './App';
 import HomePage from './pages/HomePage';
 import AboutUsPage from './pages/AboutUsPage';
+import ContactPage from './pages/ContactPage';
 import LocationsPage from './pages/LocationsPage';
 import LocationPage from './pages/LocationPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -27,6 +28,10 @@ export default [
 				...LocationPage,
 				path: ["/locations/:slug", "/locations-en/:slug"],
 				exact: true
+			},
+			{
+				...ContactPage,
+				path: ["/kontakt", "/contact"]
 			},
 			{
 				...NotFoundPage

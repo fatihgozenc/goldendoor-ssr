@@ -53,3 +53,27 @@
 	float: right;
 	overflow: hidden;
 }
+
+.panel__lang-selector {
+	position: relative;
+}
+
+.panel__lang-selected {
+	opacity: 0;
+	visibility: hidden;
+	transition: .5s all ease;
+	transform: translateY(50%);
+}
+
+.lowOpacity {
+	transition: .5s all ease;
+	opacity: .3;
+}
+
+.changeLang {
+	display: block;
+	visibility: visible;
+	opacity: 1;
+	transition: .5s all ease;
+	transform: translateY(0);
+}

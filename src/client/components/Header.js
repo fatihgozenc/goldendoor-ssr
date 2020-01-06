@@ -7,14 +7,22 @@ const cookies = Cookie();
 
 const Header = ({data, logo, lang, pathname}) => {
 
+  const navigation = React.useRef();
+  const langSelection = React.useRef();
+  const menuToggler = React.useRef();
+  
+  const changeLang = () => {
+    langSelection.current.previousElementSibling.classList.toggle('lowOpacity');
+    langSelection.current.classList.toggle('changeLang');
+  }
+
   const setLang = () => {
 		cookies.get('lang') === 'de' ? cookies.set('lang', 'en') : cookies.set('lang', 'de')
 	}
 
-	const navigation = React.useRef();
-
 	const toggleMenu = (e) => {
-			console.log(navigation, e.currentTarget)
+      console.log(navigation, e.currentTarget)
+      menuToggler.current.classList.toggle('toggleMenuIcon');
 			navigation.current.classList.toggle('nav__opening');
 			let navItems = navigation.current.querySelectorAll('ul');
 			setTimeout(() => {
@@ -23,6 +31,7 @@ const Header = ({data, logo, lang, pathname}) => {
 				});
 			}, 250);
   }
+  
 
   return (
     <header className="header">
@@ -61,14 +70,14 @@ const Header = ({data, logo, lang, pathname}) => {
       <div className="frame">
         <div className="logoarea">
           <div className="panel panel__lang">
-            <button className="panel__lang-selector"><span>{lang.toUpperCase()}</span>▾</button>
-            <a href={pathname} className="panel__lang-selected" onClick={setLang}><span>{(lang === 'de' ? 'EN' : 'DE')}</span></a>
+            <button className="panel__lang-selector" onClick={changeLang}>{`${lang.toUpperCase()}▾`}</button>
+            <a href={pathname} ref={langSelection} className="panel__lang-selected" onClick={setLang}><span>{(lang === 'de' ? 'EN' : 'DE')}</span></a>
           </div>
             <a id="logo" href="/">
               <img src={logo} alt="Golden Door Logo"/>
             </a>
           <div className="panel panel__menu">
-            <button onClick={toggleMenu}>
+            <button className="menutoggler__button" ref={menuToggler} onClick={toggleMenu}>
               <MenuToggler/>
             </button>
           </div>
