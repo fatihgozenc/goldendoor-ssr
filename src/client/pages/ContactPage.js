@@ -14,6 +14,22 @@ const ContactPage = () => {
   const [beginTime, setBeginTime] = useState(new Date());
   const [endTime, setEndTime] = useState(new Date());
 
+  const formSteps = React.useRef();
+
+  const changeStep = (e) => {
+    if (e.currentTarget.classList.contains('goBack')) {
+      formSteps.current.classList.remove('atSecondStep')
+    } else if (e.currentTarget.classList.contains('goNext')) {
+      formSteps.current.classList.remove('atSecondStep')
+      formSteps.current.classList.add('atThirdStep')
+    } else if (e.currentTarget.classList.contains('goSecond')) {
+      formSteps.current.classList.remove('atThirdStep')
+      formSteps.current.classList.add('atSecondStep')
+    } else {
+      formSteps.current.classList.add('atSecondStep')
+    }
+  }
+
   console.log(data);
 
   return(
@@ -32,44 +48,51 @@ const ContactPage = () => {
         }
         </div>
 
-        <form className="contact--wrapper">
-          
+        <div className="contact--wrapper">
+
+        <form className="contact__steps" ref={formSteps}>
+
           <div className="contact__step">
 
             <div className="contact__stepblock">
               <label htmlFor="event_type" className="label__select">{steps[0].kontakt_frage_1.frage}</label>
-              <select name="event_type">
+              <select id="event_type">
+              <optgroup>
                 {steps[0].kontakt_frage_1.optionen.map((item, key) => (
                   <option key={key} value={item.option}>{item.option}</option>
                 ))}
+              </optgroup>
               </select>
             </div>
 
             <div className="contact__stepblock">
               <label htmlFor="event_location" className="label__select">{steps[0].kontakt_frage_2.frage}</label>
-              <select name="event_location">
+              <select id="event_location">
+                <optgroup>
                 {steps[0].kontakt_frage_2.optionen.map((item, key) => (
                   <option key={key} value={item.option}>{item.option}</option>
                 ))}
+                </optgroup>
               </select>
             </div>
 
             <div className="contact__stepblock">
-              <p className="contact__stepblock--inner">{steps[0].kontakt_frage_3.frage}</p>
+              <label htmlFor="event_date_answer"
+                className="contact__stepblock--inner">{steps[0].kontakt_frage_3.frage}</label>
               {steps[0].kontakt_frage_3.optionen.map((item, key) => (
                 <p className="contact__stepblock--inner" key={key}>
-                  <input type="radio" name="event_date_answer" value={item.option}/>
-                  <label htmlFor="event_date_answer" className="label__select">{item.option}</label>
-                </p>                
+                  <input className="input__radio" type="radio" name="event_date_answer" value={item.option}/>
+                  <span className="label__radio">{item.option}</span>
+                </p>
               ))}
             </div>
 
             <div className="contact__stepblock">
               <label htmlFor="date_range">{steps[0].kontakt_frage_5}</label>
-              <input type="text" name={`event_date_answer`}/>
+              <input className="input__text" type="text" id="event_date_answer"/>
             </div>
 
-            <div className="contact__stepblock">
+            <div className="contact__stepblock contact__stepblock--datewrapper">
 
               <div className="contact__stepblock--date">
                 <label htmlFor="date_of_event">{steps[0].kontakt_frage_6.datum}</label>
@@ -83,30 +106,34 @@ const ContactPage = () => {
 
               <div className="contact__stepblock--date">
                 <label htmlFor="date_of_elusive">{steps[0].kontakt_frage_6.beginn}</label>
-                <DatePicker 
+                <DatePicker
                   showTimeSelect
                   showTimeSelectOnly
                   timeIntervals={15}
                   timeCaption="Time"
-                  dateFormat="h:mm aa" 
-                  selected={beginTime} onChange={date => setBeginTime(date)} 
+                  dateFormat="h:mm aa"
+                  selected={beginTime} onChange={date => setBeginTime(date)}
                 />
               </div>
 
               <div className="contact__stepblock--date">
                 <label htmlFor="date_of_elusive">{steps[0].kontakt_frage_6.ende}</label>
-                <DatePicker 
+                <DatePicker
                   showTimeSelect
                   showTimeSelectOnly
                   timeIntervals={15}
                   timeCaption="Time"
-                  dateFormat="h:mm aa" 
-                  selected={endTime} onChange={date => setEndTime(date)} 
+                  dateFormat="h:mm aa"
+                  selected={endTime} onChange={date => setEndTime(date)}
                 />
               </div>
 
-              <button className="golden__button" >{data.fields.buttonfelder.prufen}</button>
-              
+              <a
+                className="golden__button golden__button--center"
+                onClick={changeStep} >
+                {data.fields.buttonfelder.prufen}
+              </a>
+
             </div>
 
           </div>
@@ -119,16 +146,17 @@ const ContactPage = () => {
 
               <div className="contact__stepblock">
                 <label htmlFor="people_number">{steps[1].feld_1.frage_1}</label>
-                <input type="text" name="people_number"/>
+                <input type="text" className="input__text" name="people_number"/>
               </div>
 
               <div className="contact__stepblock">
-                <label className="contact__stepblock--inner">{steps[1].feld_1.frage_2.fragefeld}</label>
+                <label htmlFor="event_budget"
+                className="contact__stepblock--inner">{steps[1].feld_1.frage_2.fragefeld}</label>
                 {Object.values(steps[1].feld_1.frage_2.optionen).map((item, key) => (
                   <p className="contact__stepblock--inner" key={key}>
-                    <input type="radio" name="event_budget" value={item}/>
-                    <label htmlFor="event_budget" className="label__select">{item}</label>
-                  </p>                
+                    <input type="radio" className="input__radio" name="event_budget" value={item}/>
+                    <span className="label__radio">{item}</span>
+                  </p>
                 ))}
               </div>
 
@@ -150,9 +178,14 @@ const ContactPage = () => {
 
             </div>
 
-            <button className="golden__button">{data.fields.buttonfelder.zuruck}</button>
-
-            <button className="golden__button">{data.fields.buttonfelder.weiter}</button>
+            <div className="contact__buttongroup">
+              <a
+                onClick={changeStep}
+                className="golden__button goBack">{data.fields.buttonfelder.zuruck}</a>
+              <a
+                onClick={changeStep}
+                className="golden__button goNext">{data.fields.buttonfelder.weiter}</a>
+            </div>
 
           </div>
 
@@ -173,23 +206,31 @@ const ContactPage = () => {
 
               <div key={key} className="contact__stepblock">
                 <label htmlFor={`contactdata_${item}`}>{item}</label>
-                <input type="text" name={`contactdata_${item}`}/>
+                <input className="input__text" type="text" id={`contactdata_${item}`} name={`contactdata_${item}`}/>
               </div>
 
             ))}
 
-            <button className="golden__button">{data.fields.buttonfelder.senden}</button>
+            <div className="contact__buttongroup">
 
+              <a
+                onClick={changeStep}
+                className="golden__button goSecond">{data.fields.buttonfelder.zuruck}</a>
+
+              <button type="submit" className="golden__button">{data.fields.buttonfelder.senden}</button>
+
+            </div>
           </div>
 
         </form>
 
+        </div>
 
       </div>
     </>
   )
 };
-  
+
 function loadData(store){
 	return store.dispatch(fetchContact());
 }
