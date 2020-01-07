@@ -1,5 +1,8 @@
 .contact {
   margin: 0 8%;
+  @include huge {
+    margin: 0 16%;
+  }
 }
 
 .contact--wrapper {
@@ -12,7 +15,8 @@
   transition: .5s all ease;
 
   .contact__step {
-    flex: 1 0 100%;
+    flex: 1 0 98%;
+    margin: 0 1%;
   }
 }
 
@@ -27,9 +31,14 @@
 }
 
 .contact__stepslider {
+  font-size: inherit;
   display: flex;
   justify-content: space-around;
   position: relative;
+
+  @include md {
+    margin-bottom: 2rem;
+  }
 
   &::after {
     content: "";
@@ -54,6 +63,7 @@
   width: 3rem;
   display: flex;
   align-items: center;
+  transition: .5s all ease;
   justify-content: center;
 
   span {
@@ -61,21 +71,85 @@
   }
 }
 
-.activeStep {
+.activeStep{
+  transition: .5s all ease;
   background: #000;
 }
 
 .contact__step {
   h3 {
     @include title;
+    margin: 0 0 1rem 0;
     font-size: 2rem;
+
+    @include xxl {
+      font-size: 2.6rem;
+      margin: 1vh 0 2vh 0;
+    }
   }
 }
+
+.contact__step--flexWrapper {
+  @include md {
+    display: flex;
+    flex-wrap: wrap;
+
+    .contact__stepblock {
+      flex: 47%;
+      margin: 0 0 2rem 0;
+
+      @include xxl {
+        margin: 0 0 3% 0;
+      }
+
+      p {
+        display: inline-block;
+        padding-right: 2rem;
+      }
+    }
+
+    .contact__stepblock:nth-child(even) {
+      margin-left: 2rem;
+    }
+  }
+}
+
+.contact__step--flexWrapper-xl {
+  @include xl {
+    display: flex;
+    flex-wrap: wrap;
+
+    .contact__stepblock {
+      flex: 47%;
+      margin: 0 0 2rem 0;
+
+      @include xxl {
+        margin: 0 0 5vh 0;
+      }
+
+      p {
+        display: inline-block;
+        padding-right: 1rem;
+
+        @include xxl {
+          display: block;
+        }
+      }
+    }
+
+    .contact__stepblock:nth-child(even) {
+      margin-left: 2rem;
+    }
+  }
+}
+
+
 
 .contact__stepblock {
   margin: 2.5rem 0;
   font-size: 1.3rem;
   line-height: 1.6;
+  position: relative;
   label {
     @include display_text;
     display: block;
@@ -93,7 +167,7 @@
     color: $gold;
     max-width: 100%;
     box-sizing: border-box;
-    margin: 1rem 0;
+    margin:0 0 1rem 0;
     font-family:"Lato";
     text-transform: uppercase;
     letter-spacing: 1.2px;
@@ -109,20 +183,34 @@
     background-repeat: no-repeat, repeat;
     background-position: left .2em top 50%, 0 0;
     background-size: .65em auto, 100%;
+
+    &::-ms-expand {
+        display: none;
+    }
+    &:focus {
+        border-color: $gold;
+        box-shadow: none;
+        color: $gold;
+        outline: none;
+    }
   }
-  &::-ms-expand {
-      display: none;
-  }
-  &:hover {
-      border-color: #888;
-  }
-  &:focus {
-      border-color: $gold;
-      box-shadow: 0 0 1px 3px $gold;
-      box-shadow: 0 0 0 3px -moz-mac-focusring;
-      color: $gold;
+
+  & textarea {
+    background: transparent;
+    border: 1px solid $gold;
+    color: $gold;
+    font-family: "Noto Serif";
+    font-size: 1.4rem;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1.6rem;
+
+    &:focus {
       outline: none;
+    }
   }
+
   & optgroup {
     margin: 0;
     padding: 0;
@@ -146,6 +234,18 @@
   .contact__stepblock--date {
     flex: 40%;
     margin: 1rem 5px 1rem 0;
+
+    @include md {
+      margin: 1rem 1rem 1rem 0;
+
+      .react-datepicker-wrapper {
+        width: 100%;
+      }
+    }
+
+    @include xl {
+      margin: 0 0 1rem 1rem;
+    }
 
     label {
       font-size: .85em;
@@ -240,28 +340,48 @@
   }
 }
 
+// .label__text {
+//   position: absolute;
+//   top: 0;
+//   transition: .25s all ease;
+//   z-index: -1;
+// }
+
 .input__text {
+  position: relative;
   background: transparent;
   border: none;
   border-bottom: 1px solid $gold;
   border-radius: 0;
   width: 100%;
   color: $gold;
-  padding: .5rem 0;
+  padding-bottom: 1rem;
   margin: .5rem 0;
-  font-family: "Lato";
+  font-family: "Noto Serif";
   font-size: 1.4rem;
 
-  &:focus {
-    outline: $gold;
+  &:focus, &:valid {
+    outline: none;
+
+    // & ~ .label__text {
+    //   transition: .25s all ease;
+    //   top: -1.6rem;
+    //   font-size: .8em;
+    // }
   }
 }
 
 .contact__buttongroup {
   display: flex;
-  justify-content: space-around;
+  padding-top: 2rem;
+  justify-content: space-evenly;
 }
 
 .golden__button--center {
   margin: 2rem auto;
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
 }
