@@ -9,10 +9,7 @@ import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
 const LocationPage = () => {
 
   const data = useSelector(state => state.location);
-  console.log(data)
-
   const infoPanel = React.useRef();
-
   const changePanel = () => {
     infoPanel.current.classList.toggle('changePanel');
   }

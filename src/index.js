@@ -9,11 +9,34 @@ import createStore from './helpers/createStore';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const getLang = (browserCookie, browserLang, requestPath) => {
+	if (requestPath === '/en/'){
+		return 'en'
+	} else if (requestPath === null) {
+		return 'de'
+	} else if (browserCookie === 'lang=de') {
+		return 'de'
+	} else if (browserCookie === 'lang=en') {
+		return 'en'
+	} else if (browserLang === 'de') {
+		return 'de'
+	} else {
+		return 'en'
+	}
+}
+
 app.use(compression());
 app.use(express.static('public'));
 app.get('*', (req, res) => {
 
-	let lang = req.headers.cookie === 'lang=en' ? 'en' : 'de';
+	const local = req.headers["accept-language"];
+	const reqPattern = /\/en\//;
+	const localPattern = /([a-z]{2})/;
+	const filteredReq = req.path.match(reqPattern) ? req.path.match(reqPattern)[0] : null;
+	const filteredLocal = local.match(localPattern)[0]; //en or de
+	const lang = getLang(req.headers.cookie, filteredLocal, filteredReq)
+
+	console.log(`Lang is: ${lang}, request is: ${req.path}, requested lang is: ${filteredReq} local is: ${local}`)
 
 	const store = createStore(req, lang);
 	

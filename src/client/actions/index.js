@@ -46,13 +46,16 @@ export const fetchLocations = () => async (dispatch, getState, axiosInstance) =>
 function getLocationSlug(language, slug){
 	const slugPattern = /(\/.*)(\/.*)/i;
 	const filteredSlug = slug.match(slugPattern)[2];
-	return language === 'en' ? filteredSlug + '-en' : filteredSlug;
+	// return language === 'en' ? filteredSlug + '-en' : filteredSlug;
+	return filteredSlug;
 }
 
 export const FETCH_LOCATION = 'fetch_location';
 export const fetchLocation = () => async (dispatch, getState, axiosInstance) => {
 
 	const slug = getLocationSlug(axiosInstance.defaults.params.language, axiosInstance.defaults.params.slug)
+	const lang = axiosInstance.defaults.params.language
+	console.log(`Request to API is: ${slug}`)
 
 	const res = await axiosInstance.get(`/locations${slug}`);
 

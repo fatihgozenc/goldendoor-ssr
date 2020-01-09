@@ -7,6 +7,8 @@ const cookies = Cookie();
 
 const Header = ({data, logo, lang, pathname}) => {
 
+  // console.log(pathname)
+
   const navigation = React.useRef();
   const langSelection = React.useRef();
   const menuToggler = React.useRef();
@@ -70,8 +72,9 @@ const Header = ({data, logo, lang, pathname}) => {
       <div className="frame">
         <div className="logoarea">
           <div className="panel panel__lang">
+            {console.log(pathname.split('/en'))}
             <button className="panel__lang-selector" onClick={changeLang}>{`${lang.toUpperCase()}▾`}</button>
-            <a href={pathname} ref={langSelection} className="panel__lang-selected" onClick={setLang}><span>{(lang === 'de' ? 'EN' : 'DE')}</span></a>
+            <a href={lang === 'de' ? `/en${pathname}` : `${pathname.split('/en')[1]}`} ref={langSelection} className="panel__lang-selected" onClick={setLang}><span>{(lang === 'de' ? 'EN' : 'DE')}</span></a>
           </div>
             <a id="logo" href="/">
               <img src={logo} alt="Golden Door Logo"/>

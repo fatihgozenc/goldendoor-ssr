@@ -3,8 +3,8 @@ import {useSelector} from 'react-redux';
 import { fetchLocations } from '../actions';
 import Breadcrumb from '../components/Breadcrumb';
 
-const LocationsPage = () => {
-
+const LocationsPage = (state) => {
+  const pageUrl = state.match.path;
   const data = useSelector(state => state.locations);
 
   return (
@@ -39,7 +39,7 @@ const LocationsPage = () => {
                   location.location_info.sublocations.map((item, subKey) => (
                     <a key={subKey}
                       className="location__item--subitem"
-                      href={`/locations${item.link}`}>{item.name}</a>
+                      href={`${pageUrl}${item.link}`}>{item.name}</a>
                   ))
                 }
               </div>

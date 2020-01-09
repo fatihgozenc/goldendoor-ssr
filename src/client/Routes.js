@@ -12,26 +12,26 @@ export default [
 		routes: [
 			{
 				...HomePage,
-				path: '/',
+				path: ['/', '/en'],
 				exact: true
 			},
 			{
 				...AboutUsPage,
-				path: ["/uber-uns", "/about-us"]
+				path: ["/uber-uns", "/en/about-us"]
 			},
 			{
 				...LocationsPage,
-				path: ["/locations", "/locations-en" ],
+				path: ["/locations", "/en/locations" ],
 				exact: true
 			},
 			{
 				...LocationPage,
-				path: ["/locations/:slug", "/locations-en/:slug"],
+				path: ["/locations/:slug", "/en/locations/:slug"],
 				exact: true
 			},
 			{
 				...ContactPage,
-				path: ["/kontakt", "/contact"]
+				path: ["/kontakt", "/en/contact"]
 			},
 			{
 				...NotFoundPage
