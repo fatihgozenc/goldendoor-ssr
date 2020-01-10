@@ -43,7 +43,7 @@ export const fetchLocations = () => async (dispatch, getState, axiosInstance) =>
 	});
 };
 
-function getLocationSlug(language, slug){
+function getLocationSlug(language, slug) {
 	const slugPattern = /(\/.*)(\/.*)/i;
 	const filteredSlug = slug.match(slugPattern)[2];
 	// return language === 'en' ? filteredSlug + '-en' : filteredSlug;
@@ -76,3 +76,15 @@ export const fetchContact = () => async (dispatch, getState, axiosInstance) => {
 		payload: res
 	});
 };
+
+export const FETCH_CAREER = 'fetch_career';
+export const fetchCareer = () => async (dispatch, getState, axiosInstance) => {
+
+	const res = await axiosInstance.get('/career');
+
+	dispatch({
+		type: FETCH_CAREER,
+		payload: res
+	});
+};
+

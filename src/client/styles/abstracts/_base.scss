@@ -27,6 +27,7 @@ body {
 a {
 	color: inherit;
 	text-decoration: none;
+	font-family: "Lato";
 }
 
 button {
@@ -34,10 +35,15 @@ button {
 	background: none;
 	border: none;
 	color: inherit;
+	font-family: inherit;
 	cursor: pointer;
 	&:focus {
 		outline: none;
 	}
+}
+
+input {
+	font-family: inherit;
 }
 
 @include lg {

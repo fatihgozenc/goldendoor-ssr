@@ -6,17 +6,17 @@ import './styles/main.scss';
 
 const Layout = (props) => {
 
-	return(
+	return (
 		<>
-			<Header 
+			<Header
 				data={props.layoutData.header}
 				logo={props.layoutData.footer.info.logo}
 				lang={props.layoutData.lang}
 				pathname={props.location.pathname}
 			/>
 			{props.children}
-			<Newsletter data={props.layoutData.newsletter}/>
-			<Footer data={props.layoutData.footer}/>
+			<Newsletter data={props.layoutData.newsletter} />
+			<Footer data={props.layoutData.footer} />
 		</>
 	)
 }
