@@ -18,12 +18,16 @@ const DragNDrop = ({ text, messages }) => {
 		})
 
 	}, [])
+	
 	const { getRootProps, getInputProps } = useDropzone({ onDrop })
+	const textParts = text.split(' ');
 
 	return (
 		<div {...getRootProps()}>
 			<input {...getInputProps()} />
-			<p>{text}</p>
+			<span>{textParts[0]}</span>
+			<span>{textParts[1]}</span>
+			<span>{`${textParts[2]} ${textParts[3]}`}</span>
 		</div>
 	)
 }

@@ -18,7 +18,7 @@ export default [
 			},
 			{
 				...AboutUsPage,
-				path: ["/uber-uns", "/en/uber-uns", "/en/about-us"]
+				path: ["/uber-uns", "/en/uber-uns"]
 			},
 			{
 				...LocationsPage,
@@ -32,11 +32,11 @@ export default [
 			},
 			{
 				...ContactPage,
-				path: ["/kontakt", "/en/kontakt", "/en/contact"]
+				path: ["/kontakt", "/en/kontakt"]
 			},
 			{
 				...CareerPage,
-				path: ["/karriere", "/en/karriere", "/en/career"]
+				path: ["/karriere", "/en/karriere"]
 			},
 			{
 				...NotFoundPage

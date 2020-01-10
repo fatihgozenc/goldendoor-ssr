@@ -33,7 +33,6 @@ const Header = ({data, logo, lang, pathname}) => {
 				});
 			}, 250);
   }
-  
 
   return (
     <header className="header">
