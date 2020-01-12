@@ -111,13 +111,13 @@
   }
 	h2 {
 		@include title;
-    margin: 1.6rem 0;
-    font-size: 2.4rem;
+		margin: 1.6rem 0;
+		font-size: 2.4rem;
 
-    @include xxl {
-      font-size: 2.6rem;
-      margin: 1vh 0 2vh 0;
-    }
+		@include xxl {
+		font-size: 2.6rem;
+		margin: 1vh 0 2vh 0;
+		}
 	}
 }
 

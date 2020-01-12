@@ -5,6 +5,10 @@ import ContactPage from './pages/ContactPage';
 import CareerPage from './pages/CareerPage';
 import LocationsPage from './pages/LocationsPage';
 import LocationPage from './pages/LocationPage';
+import TeamPage from './pages/TeamPage';
+import ServicesPage from './pages/ServicesPage';
+import ReferencesPage from './pages/ReferencesPage';
+import ReferencePage from './pages/ReferencePage';
 import NotFoundPage from './pages/NotFoundPage';
 
 export default [
@@ -37,6 +41,24 @@ export default [
 			{
 				...CareerPage,
 				path: ["/karriere", "/en/karriere"]
+			},
+			{
+				...TeamPage,
+				path: ["/team", "/en/team"]
+			},
+			{
+				...ServicesPage,
+				path: ["/leistungen", "/en/leistungen"]
+			},
+			{
+				...ReferencesPage,
+				path: ["/referenzen", "/en/referenzen"],
+				exact: true
+			},
+			{
+				...ReferencePage,
+				path: ["/referenzen/:slug", "/en/referenzen/:slug"],
+				exact: true
 			},
 			{
 				...NotFoundPage

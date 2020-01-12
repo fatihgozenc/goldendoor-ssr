@@ -11,20 +11,18 @@ const CareerPage = () => {
 
 	const data = useSelector(state => state.career);
 
-	console.log(data)
-
 	const formFields = data.fields.karriere_bewerbung;
-	
+
 	const [jobStartDate, setJobStartDate] = useState(new Date());
 
 	const collapseBlock = (el) => {
 		let sectionHeight = el.scrollHeight;
 		let elTransition = el.style.transition;
 		el.style.transition = '';
-		requestAnimationFrame(function() {
+		requestAnimationFrame(function () {
 			el.style.height = sectionHeight + 'px';
 			el.style.transition = elTransition;
-			requestAnimationFrame(function() {
+			requestAnimationFrame(function () {
 				el.style.height = 6 + 'rem';
 			});
 		});
@@ -34,7 +32,7 @@ const CareerPage = () => {
 		let sectionHeight = el.scrollHeight;
 		el.style.height = sectionHeight + 'px';
 		let trigger = (el) => {
-			el.addEventListener('transitionend', function(e) {
+			el.addEventListener('transitionend', function (e) {
 				el.removeEventListener('transitionend', trigger);
 				el.style.height = null;
 			});
@@ -82,7 +80,7 @@ const CareerPage = () => {
 								</div>
 								<div className="career__entry--block">
 									<a href={`#job-${key}`} onClick={(e) => openBlock(e)}>
-										<Icon type="plus"/>
+										<Icon type="plus" />
 									</a>
 								</div>
 							</div>
@@ -99,22 +97,22 @@ const CareerPage = () => {
 					{Object.values(formFields.bewerbung_etiketten).map((item, key) => (
 
 						<div key={key} className="contact__stepblock">
-							
+
 							{key === 3
 								? (
 									<label className="label__text" htmlFor={`bewerbung_${item}`}>{item}
-									<input
-										className="input__text"
-										type="text" id={`bewerbung_${item.toLowerCase()}`}
-										name={`bewerbung_${item.toLowerCase()}`} />
+										<input
+											className="input__text"
+											type="text" id={`bewerbung_${item.toLowerCase()}`}
+											name={`bewerbung_${item.toLowerCase()}`} />
 									</label>
 								) : (
 									<label className="label__text" htmlFor={`bewerbung_${item}`}>{`${item}*`}
-									<input
-										required
-										className="input__text"
-										type="text" id={`bewerbung_${item.toLowerCase()}`}
-										name={`bewerbung_${item.toLowerCase()}`} /> 
+										<input
+											required
+											className="input__text"
+											type="text" id={`bewerbung_${item.toLowerCase()}`}
+											name={`bewerbung_${item.toLowerCase()}`} />
 									</label>
 								)
 							}
@@ -163,7 +161,7 @@ const CareerPage = () => {
 
 					<div className="contact__stepblock career__submitwrapper" >
 
-					<button type="submit" className="golden__button">{formFields.bewerbung_button}</button>
+						<button type="submit" className="golden__button">{formFields.bewerbung_button}</button>
 
 					</div>
 

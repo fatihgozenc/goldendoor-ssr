@@ -43,7 +43,7 @@ export const fetchLocations = () => async (dispatch, getState, axiosInstance) =>
 	});
 };
 
-function getLocationSlug(language, slug) {
+function getLocationSlug(slug) {
 	const slugPattern = /(\/.*)(\/.*)/i;
 	const filteredSlug = slug.match(slugPattern)[2];
 	// return language === 'en' ? filteredSlug + '-en' : filteredSlug;
@@ -53,7 +53,7 @@ function getLocationSlug(language, slug) {
 export const FETCH_LOCATION = 'fetch_location';
 export const fetchLocation = () => async (dispatch, getState, axiosInstance) => {
 
-	const slug = getLocationSlug(axiosInstance.defaults.params.language, axiosInstance.defaults.params.slug)
+	const slug = getLocationSlug(axiosInstance.defaults.params.slug)
 	const lang = axiosInstance.defaults.params.language
 	console.log(`Request to API is: ${slug}`)
 
@@ -64,7 +64,6 @@ export const fetchLocation = () => async (dispatch, getState, axiosInstance) => 
 		payload: res
 	});
 };
-
 
 export const FETCH_CONTACT = 'fetch_contact';
 export const fetchContact = () => async (dispatch, getState, axiosInstance) => {
@@ -88,3 +87,46 @@ export const fetchCareer = () => async (dispatch, getState, axiosInstance) => {
 	});
 };
 
+export const FETCH_SERVICES = 'fetch_services';
+export const fetchServices = () => async (dispatch, getState, axiosInstance) => {
+
+	const res = await axiosInstance.get('/services');
+
+	dispatch({
+		type: FETCH_SERVICES,
+		payload: res
+	});
+};
+
+export const FETCH_TEAM = 'fetch_team';
+export const fetchTeam = () => async (dispatch, getState, axiosInstance) => {
+
+	const res = await axiosInstance.get('/team');
+
+	dispatch({
+		type: FETCH_TEAM,
+		payload: res
+	});
+};
+
+export const FETCH_REFERENCES = 'fetch_references';
+export const fetchReferences = () => async (dispatch, getState, axiosInstance) => {
+
+	const res = await axiosInstance.get('/references/page/1');
+
+	dispatch({
+		type: FETCH_REFERENCES,
+		payload: res
+	});
+};
+
+export const FETCH_REFERENCE = 'fetch_reference';
+export const fetchReference = () => async (dispatch, getState, axiosInstance) => {
+
+	const res = await axiosInstance.get(`/references${slug}`);
+
+	dispatch({
+		type: FETCH_REFERENCE,
+		payload: res
+	});
+};
