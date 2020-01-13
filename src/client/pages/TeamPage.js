@@ -20,7 +20,7 @@ const TeamPage = () => {
 			<Hero data={teamData} />
 			<div id="content" className="team">
 
-				<div className="carousel">
+				<div className="carousel__3D">
 					<Carousel
 						imgList={images}
 						img_width={250}
