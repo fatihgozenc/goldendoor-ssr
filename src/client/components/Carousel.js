@@ -174,39 +174,57 @@ const Carousel = (props) => {
 		}
 	}, []);
 
+	const [middleImageKey, setMiddleImageKey] = React.useState(0);
+
 	const loadCarousel = () => {
 		return (
-			<ul ref={wrapper}
-				className="carousel__wrapper"
-				style={{
-					height: parentHeight + 'px',
-					width: parentWidth + 'px',
-					padding: parentPad + 'px',
-					perspective: '500px'
-				}}
-			>
-				{
-					imgList.map((image, index) => {
-						const displayNone = visibleItemsProps.order.indexOf(index) === -1;
-						// To not to show images that are out of visibility scope
-						const styles = visibleItemsProps[index] ? visibleItemsProps[index].styles : {};
-						return (
-							<li key={index}
-								className={'carousel__item ' + (displayNone ? 'd-none' : '')}
-								style={{
-									...styles,
-									position: 'absolute',
-									transition: `all ${durationRef.current}ms ease `
-								}}
-								onClick={(e) => {
-									changeCenter({ e, index })
-								}}>
-								<img src={image} alt={'img'} width={img_width} height={img_height} />
-							</li>
-						)
-					})
-				}
-			</ul>
+			<div className="carousel__3D">
+				<ul ref={wrapper}
+					className="carousel__wrapper"
+					style={{
+						height: parentHeight + 'px',
+						width: parentWidth + 'px',
+						padding: parentPad + 'px',
+						perspective: '500px'
+					}}
+				>
+					{
+						imgList.map((image, index) => {
+							const displayNone = visibleItemsProps.order.indexOf(index) === -1;
+							// To not to show images that are out of visibility scope
+							const styles = visibleItemsProps[index] ? visibleItemsProps[index].styles : {};
+							return (
+								<li key={index}
+									className={'carousel__item ' + (displayNone ? 'd-none' : '')}
+									style={{
+										...styles,
+										position: 'absolute',
+										transition: `all ${durationRef.current}ms ease `
+									}}
+									onClick={(e) => {
+										changeCenter({ e, index })
+										setMiddleImageKey(index)
+									}}>
+									<img src={image} alt={'img'} width={img_width} height={img_height} />
+								</li>
+							)
+						})
+					}
+				</ul>
+				<div className="carousel__infos">
+					{
+						props.data.map((item, key) => (
+							key === middleImageKey &&
+							<div key={key} className="infos__item">
+								<h3>{item.mitarbeiter_name}</h3>
+								<h4>{item.mitarbeiter_titel}</h4>
+								<p>{item.mitarbeiter_email}</p>
+								<p>{item.mitarbeiter_telefon}</p>
+							</div>
+						))
+					}
+				</div>
+			</div>
 		);
 	};
 

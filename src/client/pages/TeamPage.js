@@ -15,21 +15,24 @@ const TeamPage = () => {
 		item.mitarbeiter_bild
 	))
 
+	console.log(teamData)
+
 	return (
 		<>
 			<Hero data={teamData} />
 			<div id="content" className="team">
-
-				<div className="carousel__3D">
-					<Carousel
-						imgList={images}
-						img_width={250}
-						img_height={280}
-						visibleImages={5}
-						duration={750}
-					/>
+				<Carousel
+					data={data}
+					imgList={images}
+					img_width={250}
+					img_height={280}
+					visibleImages={5}
+					duration={750}
+				/>
+				<div className="team__lastblock">
+					<h5>{teamData.fields.karriere_text}</h5>
+					<a className="golden__button" href={teamData.fields.karriere_button.link}>{teamData.fields.karriere_button.text}</a>
 				</div>
-
 			</div>
 		</>
 	)

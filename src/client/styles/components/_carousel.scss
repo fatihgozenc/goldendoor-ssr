@@ -1,13 +1,36 @@
 .carousel__3D{
-	overflow: hidden;
+	overflow-x: hidden;
 	position: relative;
-	height: 50vh;
+	display: flex;
+	height: 48rem;
+	align-items: center;
+	flex-direction: column;
+	
+	@include md {
+		overflow: initial;
+	}
+
+	@include lg {
+		height: 52rem;
+	}
+
+	@include xl {
+		height: 50vh;
+		flex-direction: row;
+		width: 1010px;
+    margin: 0 auto;
+	}
+
+	@include xxl {
+		transform: scale(1.5);
+	}
+
 }
 
 .carousel__wrapper{
-	overflow: hidden;
 	margin: auto;
 	box-sizing: border-box;
+	flex: 1 0 50%;
 	position: absolute;
 
 	transform: translate(-50%, -50%) scale(.6);
@@ -20,6 +43,49 @@
 		transform: initial;
 		top: initial;
 		left: initial;
+	}
+}
+
+.carousel__infos {
+	text-align: center;
+	flex: 1;
+	position: absolute;
+	bottom: 0;
+
+	@include xl {
+		text-align: initial;
+		position: initial;
+		bottom: initial;
+	}
+}
+
+.infos__item {
+	animation: appear .5s cubic-bezier(.49,.04,.28,.99);
+
+	h3 {
+		@include title;
+		@include md {
+			font-size: 2.6rem;
+		}
+	}
+
+	h4, p , a {
+		@include display_text;
+		font-size: .75em;
+		@include xl {
+			font-size: 1em;
+		}
+	}
+}
+
+@keyframes appear {
+	0%{
+		transform: translateY(30%);
+		opacity: 0;
+	}
+	100%{
+		transform: translateY(0);
+		opacity: 1;
 	}
 }
 
