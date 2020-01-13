@@ -43,7 +43,7 @@ export const fetchLocations = () => async (dispatch, getState, axiosInstance) =>
 	});
 };
 
-function getLocationSlug(slug) {
+function getSubitemSlug(slug) {
 	const slugPattern = /(\/.*)(\/.*)/i;
 	const filteredSlug = slug.match(slugPattern)[2];
 	// return language === 'en' ? filteredSlug + '-en' : filteredSlug;
@@ -53,10 +53,7 @@ function getLocationSlug(slug) {
 export const FETCH_LOCATION = 'fetch_location';
 export const fetchLocation = () => async (dispatch, getState, axiosInstance) => {
 
-	const slug = getLocationSlug(axiosInstance.defaults.params.slug)
-	const lang = axiosInstance.defaults.params.language
-	console.log(`Request to API is: ${slug}`)
-
+	const slug = getSubitemSlug(axiosInstance.defaults.params.slug)
 	const res = await axiosInstance.get(`/locations${slug}`);
 
 	dispatch({
@@ -109,10 +106,17 @@ export const fetchTeam = () => async (dispatch, getState, axiosInstance) => {
 	});
 };
 
+function getPageNumber(slug) {
+	const slugPattern = /(\d+)/;
+	const filteredSlug = slug.match(slugPattern);
+	return filteredSlug !== null ? filteredSlug[0] : null;
+}
+
 export const FETCH_REFERENCES = 'fetch_references';
 export const fetchReferences = () => async (dispatch, getState, axiosInstance) => {
 
-	const res = await axiosInstance.get('/references/page/1');
+	const pageNumber = getPageNumber(axiosInstance.defaults.params.slug);
+	const res = await axiosInstance.get(`/references/page/${pageNumber === null ? 1 : pageNumber}`);
 
 	dispatch({
 		type: FETCH_REFERENCES,
@@ -120,9 +124,11 @@ export const fetchReferences = () => async (dispatch, getState, axiosInstance) =
 	});
 };
 
+
 export const FETCH_REFERENCE = 'fetch_reference';
 export const fetchReference = () => async (dispatch, getState, axiosInstance) => {
 
+	const slug = getSubitemSlug(axiosInstance.defaults.params.slug)
 	const res = await axiosInstance.get(`/references${slug}`);
 
 	dispatch({

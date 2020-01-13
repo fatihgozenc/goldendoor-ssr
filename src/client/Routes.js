@@ -52,7 +52,7 @@ export default [
 			},
 			{
 				...ReferencesPage,
-				path: ["/referenzen", "/en/referenzen"],
+				path: ["/referenzen", "/en/referenzen", "/referenzen/page/:id", "/en/referenzen/page/:id"],
 				exact: true
 			},
 			{

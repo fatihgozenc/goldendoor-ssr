@@ -7,11 +7,22 @@ import parse from 'html-react-parser';
 const ReferencePage = () => {
 
 	const data = useSelector(state => state.reference);
+	console.log(data)
+
+	const heroData = {
+		slug: data.slug,
+		title: data.title,
+		content: data.excerpt,
+		image: data.image,
+		scroll: data.scroll
+	}
 
 	return (
 		<>
-			<Hero data={data} />
-			<div id="content" className="services">hello</div>
+			<Hero data={heroData} className="hero--reference" />
+			<div id="content" className="reference">
+
+			</div>
 		</>
 	)
 };

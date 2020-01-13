@@ -1,10 +1,10 @@
 import React from 'react';
 import Breadcrumb from './Breadcrumb';
 
-const Hero = ({ data }) => {
+const Hero = ({ data, className }) => {
 	return (
 		<>
-			<div className="hero">
+			<div className={`hero ${className}`}>
 				<div className="hero__img backgroundImg" style={{ backgroundImage: "url(" + data.image + ")" }} />
 				<div className="hero__opening">
 					<div className="hero__opening--title">

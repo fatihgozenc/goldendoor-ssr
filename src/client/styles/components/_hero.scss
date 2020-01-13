@@ -24,8 +24,16 @@
       font-size: 3.2rem;
     }
 
-    @include lg {
+    @include xl {
       font-size: 3.6rem;
+    }
+
+    @include xxl {
+      font-size: 4.2rem;
+    }
+
+    @include huge {
+      font-size: 5.2rem;
     }
   }
 }
@@ -42,6 +50,7 @@
   @include md {
     margin: 4% 8%;
     display: flex;
+    align-items: center;
   }
 
   @include xl {
@@ -75,5 +84,11 @@
 
   span {
     display: block;
+  }
+}
+
+.hero--reference {
+  .hero__img {
+    background-position: 50% 0%;
   }
 }

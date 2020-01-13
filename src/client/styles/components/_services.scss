@@ -11,19 +11,34 @@
 }
 
 .services__route--content {
-	@include md {
-		font-size: .8em;
 
-		h3 {
-			margin: 0 0 1.6rem 0;
+	em {
+		font-size: .75em;
+	}
+
+	p {
+		@include md {
+			font-size: .8em;
+		}
+		@include xxl {
+			font-size: .9em;
 		}
 	}
 
-	@include xl {
-		font-size: initial;
-
-		h3 {
-			margin: initial;
+	h3 {
+		@include md {
+			margin: 0 0 1.6rem 0;
 		}
+		@include xl {
+			font-size: 3rem;
+		}
+
+		@include xxl {
+			font-size: 3.6rem;
+		}
+	}
+
+	@include huge {
+		font-size: initial;
 	}
 }
