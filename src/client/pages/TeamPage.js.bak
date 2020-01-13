@@ -1,0 +1,98 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { fetchTeam } from '../actions';
+import Hero from '../components/Hero'
+import parse from 'html-react-parser';
+
+const TeamPage = () => {
+	const teamData = useSelector(state => state.team);
+
+	const data = teamData.fields.mitarbeiter_info;
+	const dataCount = data.length;
+	const dataCopy = [...data];
+	const lastFourOfData = data.slice(dataCount - 2, dataCount);
+	const combinedData = [...lastFourOfData, ...data];
+
+	const arrayMove = (arr, fromIndex, toIndex) => {
+		var element = arr[fromIndex];
+		arr.splice(fromIndex, 1);
+		arr.splice(toIndex, 0, element);
+	}
+
+	const slicedData = combinedData.slice(0, 4)
+
+	const [slides, setSlides] = React.useState(combinedData);
+	const sliderWrapper = React.useRef();
+
+	const nextSlide = () => {
+		// const slideItems = sliderWrapper.current.children;
+		// console.log(slideItems[2].style.backgroundImage)
+		// slideItems[1].classList.add('changeToHiddenFirst')
+		// slideItems[2].classList.add('changeToSecond')
+		// slideItems[3].classList.add('changeToSelected')
+		// slideItems[4].classList.add('changeToThird')
+		// slideItems[5].classList.add('changeToFourth')
+		// setTimeout(() => {
+		// 	slideItems[2].style.backgroundImage = slideItems[3].style.backgroundImage;
+		// 	slideItems[2].classList.remove('changeToSecond')
+		// 	slideItems[3].style.backgroundImage = slideItems[4].style.backgroundImage;
+		// 	slideItems[3].classList.remove('changeToSelected')
+		// 	slideItems[4].style.backgroundImage = slideItems[5].style.backgroundImage;
+		// 	slideItems[4].classList.remove('changeToThird')
+		// 	// slideItems[5].classList.remove('changeToFourth')
+		// }, 750);
+
+	}
+
+	const prevSlide = () => {
+		// arrayMove(combinedData, 0, combinedData.length - 1);
+		// combinedData.move(combinedData.length - 1, 0)
+		// setSlides(slides.move(slides.length - 1, 0));
+		// console.log(slides)
+	}
+
+	return (
+		<>
+			<Hero data={teamData} />
+			<div id="content" className="team">
+				<div className="slider">
+					<div className="slider__wrapper" ref={sliderWrapper}>
+
+						{/* <div className="slider__item backgroundImg slider__item--hiddenfirst"
+							style={{ backgroundImage: "url(" + combinedData[0].mitarbeiter_bild + ")" }} />
+						<div className="slider__item backgroundImg slider__item--second"
+							style={{ backgroundImage: "url(" + combinedData[1].mitarbeiter_bild + ")" }} />
+						<div className="slider__item backgroundImg slider__item--selected"
+							style={{ backgroundImage: "url(" + combinedData[2].mitarbeiter_bild + ")" }} />
+						<div className="slider__item backgroundImg slider__item--third"
+							style={{ backgroundImage: "url(" + combinedData[3].mitarbeiter_bild + ")" }} />
+						<div className="slider__item backgroundImg slider__item--fourth"
+							style={{ backgroundImage: "url(" + combinedData[4].mitarbeiter_bild + ")" }} />
+						<div className="slider__item backgroundImg slider__item--hiddenlast"
+							style={{ backgroundImage: "url(" + combinedData[5].mitarbeiter_bild + ")" }} /> */}
+
+						{
+							combinedData.map((item, key) => (
+								<div key={key} className="slider-item backgroundImg"
+									style={{ backgroundImage: "url(" + item.mitarbeiter_bild + ")" }} />
+							))
+						}
+					</div>
+					<button onClick={prevSlide}
+						className="slider__button slider__button--prev">&larr;</button>
+					<button onClick={nextSlide}
+						className="slider__button slider__button--next">&rarr;</button>
+				</div>
+			</div>
+		</>
+	)
+};
+
+function loadData(store) {
+	return store.dispatch(fetchTeam());
+}
+
+export default {
+	loadData,
+	component: TeamPage
+}

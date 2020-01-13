@@ -1,0 +1,29 @@
+.services__route--wrapper{
+	@include md {
+
+		.services__route--img  {
+			flex: 1 0 45%;
+			@include lg {
+				flex: 1 0 55%;
+			}
+		}
+	}
+}
+
+.services__route--content {
+	@include md {
+		font-size: .8em;
+
+		h3 {
+			margin: 0 0 1.6rem 0;
+		}
+	}
+
+	@include xl {
+		font-size: initial;
+
+		h3 {
+			margin: initial;
+		}
+	}
+}

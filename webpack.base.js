@@ -3,7 +3,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
-module.exports ={
+module.exports = {
 	// TELL WEBPACK TO RUN BABEL ON EVERY FILE
 	// IT RUNS THROUGH
 	mode: 'development',

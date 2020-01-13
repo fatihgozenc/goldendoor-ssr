@@ -1,123 +1,135 @@
 .home__route--img {
-  height: 30vh;
+	height: 30vh;
 
-  @include md {
-      border: 1px solid $gold;
-      border-left: none;
-  }
+	@include md {
+			border: 1px solid $gold;
+			border-left: none;
+	}
 
-  @include lg {
-    height: 50vh;
-    padding: 4% 0;
-  }
+	@include lg {
+		height: 50vh;
+		padding: 4% 0;
+	}
 }
 
 .home__route--wrapper{
-  display: flex;
-  flex-direction: column;
-  @include md {
-    flex-direction: row;
-    align-items: center;
-    .home__route--img {
-      flex: 1 0 65%;
-      
-
-      @include lg {
-        flex: 1 0 55%;
-      }
-    }
-  }
+	display: flex;
+	flex-direction: column;
+	@include md {
+		flex-direction: row;
+		align-items: center;
+		.home__route--img {
+			flex: 1 0 65%;
+			@include lg {
+				flex: 1 0 55%;
+			}
+		}
+	}
 }
 
 .home__route{
-  margin: 0 0 8% 0;
-  display: block;
+	margin: 0 0 8% 0;
+	display: block;
 
-  &:nth-child(odd){
-    .home__route--wrapper {
-      @include md {
-        flex-direction: row-reverse;
-        .home__route--img {
-          border-right: none;
-          border-left: 1px solid $gold;
-        } 
-      }
-    }
+	&:nth-child(odd){
+		.home__route--wrapper {
 
-    
-  }
+			@include md {
+				flex-direction: row-reverse;
+
+				.home__route--img {
+					border-right: none;
+					border-left: 1px solid $gold;
+				}
+
+				.home__route--content {
+					margin: 0 4% 0 8%;
+				}
+			}
+		}
+	}
+
+	&:nth-child(even){
+		.home__route--wrapper {
+
+			@include md {
+
+				.home__route--content {
+					margin: 0 8% 0 4%;
+				}
+
+			}
+		}
+	}
+
 }
 
 .home__route--content {
-  margin: 0 8%;
+	margin: 0 8%;
 
-  @include md {
-    margin: 0 8% 0 4%;
-  }
-
-  p {
-    @include display_text;
-    font-size: .9em;
-    line-height: 1.6;
-  }
+	p {
+		@include display_text;
+		font-size: .9em;
+		line-height: 1.6;
+	}
 }
 
 .home__route--link {
-  @include display_text;
-  font-size: .8em;
-  font-weight: bold;
+	@include display_text;
+	font-size: .8em;
+	font-weight: bold;
 }
 
 .preface {
-  &::before{
-    content: ' ';
-    display: block;
-    width: 100%;
-    height: 15vh;
-    background: linear-gradient(to bottom, #000 15%, transparent);
+	&::before{
+		content: ' ';
+		display: block;
+		width: 100%;
+		height: 15vh;
+		background: linear-gradient(to bottom, #000 15%, transparent);
 
-    @include xxl {
-      height: 25vh;
-    }
-  }
+		@include xxl {
+			height: 25vh;
+		}
+	}
 
-  h2 {
-    @include display_text;
-    font-weight: normal;
-    font-size: 1.6rem;
-    margin: 0 8%;
-    text-align: center;
+	h2 {
+		@include display_text;
+		font-weight: normal;
+		font-size: 1.6rem;
+		margin: 0 8%;
+		text-align: center;
 
-    @include lg {
-      margin: 0 auto;
-      max-width: 600px;
-      line-height: 2;
-    }
-  }
-  p{
-    text-align: center;
-    font-family: 'Noto Serif';
-    line-height: 1.6;
-    padding: 3%;
+		@include lg {
+			margin: 0 auto;
+			max-width: 600px;
+			line-height: 2;
+		}
+	}
+	p{
+		text-align: center;
+		font-family: 'Noto Serif';
+		line-height: 1.6;
+		padding: 3%;
 
-    @include md {
-      text-align: initial;
-    }
+		@include md {
+			text-align: initial;
+		}
 
-    @include lg{
-      padding: 1%;
-    }
-  }
+		@include lg{
+			padding: 1%;
+		}
+	}
 }
 
 .preface__blocks {
-  margin: 8%;
-  @include md {
-    display: flex;
-  }
-  @include xl {
-    margin: 0 auto;
-    padding: 3% 0 8% 0;
-    max-width: 1200px;
-  }
+	margin: 8%;
+	@include md {
+		display: flex;
+	}
+	@include xl {
+		margin: 0 auto;
+		padding: 3% 0 8% 0;
+		max-width: 1200px;
+	}
 }

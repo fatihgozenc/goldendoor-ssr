@@ -1,0 +1,61 @@
+.carousel{
+	overflow: hidden;
+	position: relative;
+	height: 50vh;
+}
+
+.carousel__wrapper{
+	overflow: hidden;
+	margin: auto;
+	box-sizing: border-box;
+	position: absolute;
+
+	transform: translate(-50%, -50%) scale(.6);
+	top: 50%;
+	left: 50%;
+
+	@include md {
+		overflow: initial;
+		position: relative;
+		transform: initial;
+		top: initial;
+		left: initial;
+	}
+}
+
+.addFrame {
+	border: 1px solid $gold;
+}
+
+.carousel__item {
+	position: 'absolute';
+	top: 0;
+	left: 0;
+	list-style-type: none;
+
+	img {
+		@include md {
+			// height: 30vh;
+			// width: 15vw;
+		}
+		// height: 30vh;
+	}
+
+	&::after{
+		content: '';
+		position: absolute;
+		height: 2rem;
+		width: 100%;
+		bottom: -25%;
+		display: block;
+		background: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%);
+	}
+}
+
+.carousel__item:hover {
+	cursor: pointer;
+}
+
+.d-none {
+	display: none;
+}
