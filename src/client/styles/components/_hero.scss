@@ -46,6 +46,7 @@
 
 .hero__opening{
   margin: 8%;
+  position: relative;
 
   @include md {
     margin: 4% 8%;
@@ -84,6 +85,16 @@
 
   span {
     display: block;
+  }
+
+  @include md {
+    position: absolute;
+    bottom: -40%;
+  }
+
+  @include xl {
+    position: initial;
+    bottom: initial;
   }
 }
 

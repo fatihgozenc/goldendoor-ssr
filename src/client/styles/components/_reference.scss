@@ -1,0 +1,162 @@
+.reference {
+  padding-top: 16%;
+  display: flex;
+  flex-direction: column-reverse;
+  font-family: "Noto Serif";
+  line-height: 1.6;
+
+
+  @include xl {
+    flex-direction: row;
+    .reference__info {
+      flex: 35%;
+    }
+    .reference__gallery {
+      flex: 65%;
+    }
+  }
+}
+
+.reference__gallery--wrapper{
+  @include md {
+    height: 40vh;
+  }
+  @include lg {
+    height: 60vh;
+  }
+  @include xl {
+    height: 49vh;
+    border: none;
+  }  
+}
+
+.reference__info {
+  margin: 8%;
+
+  h3 {
+    display: none;
+  }
+
+  p {
+    @include md {
+      column-count: 2;
+      column-gap: 8%;
+    }
+    @include xl {
+      column-count: initial;
+      column-gap: initial;
+    }
+  }
+
+  @include md {
+    margin: 0 8%;
+    
+    h3 {
+      display: block;
+      @include display_text;
+      font-size: 2.4rem;
+      font-family: "Lato";
+      font-weight: normal;
+      text-align: center;
+    }
+  }
+
+  @include xl {
+    
+    h3 {
+      display: none;
+    }
+  }
+}
+
+.reference__info--linkgroup{
+  overflow: hidden;
+  margin: 8% 0;
+  display: flex;
+  justify-content: space-between;
+
+  @include md {
+    justify-content: space-evenly;
+  }
+
+  @include xl {
+    justify-content: space-between;
+  }
+
+  a {
+    white-space: nowrap;
+    @include display_text;
+    font-size: .7em;
+
+    @include xl {
+      font-size: .9em
+    }
+    
+  }
+}
+
+
+.reference__info--related {
+  display: inline-block;
+  .mehrlesen_text {
+    white-space: nowrap;
+  }
+
+  &:hover {
+    @include mehrlesen_hover;
+  }
+}
+
+.reference__info--related-loc {
+  font-weight: normal;
+  margin: 2rem 0;
+  display: block;
+  font-size: .75em;
+  letter-spacing: 2px;
+  
+  
+}
+
+.gallery--nav-location {
+  justify-content: flex-end;
+}
+
+.gallery--nav{
+  display: none;
+  @include xl {
+    display: flex;
+  }
+
+  button {
+    height: 2.6rem;
+    box-sizing: border-box;
+    width: 2.6rem;
+    border-radius: 5rem;
+    border: $gold 1px solid;
+    position: relative;
+    margin: 1rem .5rem;
+  }
+
+  .carousel__dot--selected > span {
+    position: absolute;
+    background: $gold;
+    width: 16px;
+    height: 16px;
+    border-radius: 5rem;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: navButtonAppear .5s ease;
+  }
+
+}
+
+@keyframes navButtonAppear {
+  0%{
+    transform: translate(-50%, -50%) scale(.3)
+  }
+  100%{
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

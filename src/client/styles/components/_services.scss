@@ -10,6 +10,14 @@
 	}
 }
 
+.home__route:nth-child(2){
+	.services__route--wrapper{
+		.services__route--content > p:last-child{
+			column-count: 2;
+		}
+	}
+}
+
 .services__route--content {
 
 	em {

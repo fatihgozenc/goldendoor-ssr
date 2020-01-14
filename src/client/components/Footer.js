@@ -1,6 +1,6 @@
 import React from 'react';
 import parse from 'html-react-parser';
-import {Link} from 'react-router-dom';
+import {a} from 'react-router-dom';
 
 const Footer = ({data}) => {
 
@@ -31,7 +31,7 @@ const Footer = ({data}) => {
               {data.routes.map((route, key) => {
                 while (key <= 3) {
                   return (
-                    <Link key={route.id} className="footer__routes--item" to={route.url}>{route.title}</Link>
+                    <a key={route.id} className="footer__routes--item" to={route.url}>{route.title}</a>
                   )
                 }
               })}
@@ -40,7 +40,7 @@ const Footer = ({data}) => {
               {data.routes.map((route, key) => {
                 while (key >= 4) {
                   return (
-                    <Link key={route.id} className="footer__routes--item" to={route.url}>{route.title}</Link>
+                    <a key={route.id} className="footer__routes--item" to={route.url}>{route.title}</a>
                   )
                 }
               })}
@@ -61,9 +61,9 @@ const Footer = ({data}) => {
                 while (key < 4) {
                   return(
                     <div key={key} className="footer__submarken--item">
-                      <Link to={marke.route}>
+                      <a href={marke.route}>
                         <img src={marke.logo} alt="Submarke Logo"/>
-                      </Link>
+                      </a>
                     </div>
                   )
                 }})
@@ -74,9 +74,9 @@ const Footer = ({data}) => {
                 while (key > 3 && key < 8) {
                   return(
                     <div key={key} className="footer__submarken--item">
-                      <Link to={marke.route}>
+                      <a href={marke.route}>
                         <img src={marke.logo} alt="Submarke Logo"/>
-                      </Link>
+                      </a>
                     </div>
                   )
                 }})
@@ -90,9 +90,9 @@ const Footer = ({data}) => {
                 while (key > 7) {
                   return(
                     <div key={key} className="footer__submarken--item">
-                      <Link to={marke.route}>
+                      <a href={marke.route}>
                         <img src={marke.logo} alt="Submarke Logo"/>
-                      </Link>
+                      </a>
                     </div>
                   )
                 }})

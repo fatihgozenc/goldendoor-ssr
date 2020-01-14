@@ -85,7 +85,7 @@ const LocationPage = () => {
               
           </Slider>
           
-          <DotGroup/>
+          <DotGroup className="gallery--nav gallery--nav-location"/>
         </CarouselProvider>
         </div>
 

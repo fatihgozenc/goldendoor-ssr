@@ -6,14 +6,14 @@ import parse from 'html-react-parser';
 
 const ServicesPage = () => {
 	const data = useSelector(state => state.services);
-	console.log(data);
 	return (
 		<>
 			<Hero data={data} />
 			<div id="content" className="services">
 				{data.fields.leistung_bearbeitung.map((item, key) => (
-					<div key={key} className="home__route">
 
+					<div key={key} className="home__route">
+						
 						<div className="home__route--wrapper services__route--wrapper">
 							<div className="home__route--img services__route--img backgroundImg"
 								style={{ backgroundImage: "url(" + item.leistung_bild + ")" }} />
@@ -22,6 +22,7 @@ const ServicesPage = () => {
 								{parse(item.leistung_inhalt)}
 							</div>
 						</div>
+
 					</div>
 
 				))}

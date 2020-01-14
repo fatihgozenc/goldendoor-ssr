@@ -5,7 +5,7 @@ import Newsletter from './components/Newsletter';
 import './styles/main.scss';
 
 const Layout = (props) => {
-
+	
 	return (
 		<>
 			<Header
@@ -14,7 +14,7 @@ const Layout = (props) => {
 				lang={props.layoutData.lang}
 				pathname={props.location.pathname}
 			/>
-			{props.children}
+				{props.children}
 			<Newsletter data={props.layoutData.newsletter} />
 			<Footer data={props.layoutData.footer} />
 		</>

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { fetchHome } from '../actions';
 import parse from 'html-react-parser';
-
+import MehrLesen from '../components/MehrLesen';
 import Opening from '../components/opening/Opening';
 
 const Home = () => {
@@ -33,7 +33,9 @@ const Home = () => {
 							<div className="home__route--content">
 								<h3 className="title__lg">{route.titel}</h3>
 								{parse(route.inhalt)}
-								<span className="home__route--link">{route.titel} →</span>
+								<span className="home__route--link">
+									<MehrLesen name={route.titel}/>
+								</span>
 							</div>
 						</div>
 					</a>
