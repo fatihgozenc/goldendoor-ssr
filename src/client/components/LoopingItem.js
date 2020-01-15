@@ -1,8 +1,6 @@
 import React from 'react';
 import Icon from '../components/Icon';
 
-// import useCountRenders from '../utils/useCountRenders'
-
 const LoopingItem = React.memo((props) => {
 
 	const imgRatio = Math.round((props.width / props.height) * 10000) / 10000;
@@ -13,9 +11,16 @@ const LoopingItem = React.memo((props) => {
 	const openCarousel = (e) => {
 		const imgID = e.currentTarget.classList[1];
 		const mainContainer = e.currentTarget.parentElement.parentElement.parentElement;
+		mainContainer.lastElementChild.classList.add('show')
+		setTimeout(() => {
+			mainContainer.lastElementChild.classList.add('gallerySliderOpen')
+			setTimeout(() => {
+				mainContainer.lastElementChild.lastElementChild.classList.add('gallerySliderBlockOpen')
+			}, 750);
+		}, 10);
 		const elementInCarousel = mainContainer.lastElementChild.getElementsByClassName(`img-${imgID}`);
 		const elementInCarouselIndex = elementInCarousel[0].getAttribute('slideindex');
-		mainContainer.lastElementChild.lastElementChild.lastElementChild.children[elementInCarouselIndex].click();
+		mainContainer.lastElementChild.lastElementChild.lastElementChild.lastElementChild.children[elementInCarouselIndex].click();
 	}
 
 	React.useEffect(() => {

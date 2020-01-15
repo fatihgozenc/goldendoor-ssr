@@ -2,14 +2,132 @@
 @import 'looping_gallery_row';
 @import 'looping_gallery_item';
 
+.page--gallery{
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery {
+  height: 100vh;
+}
+
 .gallery__slider--wrapper {
   height: 65vh;
 
   img {
-    height: 45vh;
+    height: 25vh;
+
+    @include xl {
+      height: 45vh;
+    }
   }
   
   .carousel__inner-slide {
     text-align: center;
+    h5 {
+      @include display_text;
+      font-size: 1.2rem;
+      span {
+        font-weight: normal;
+      }
+      @include xl {
+        font-size: 1.6rem;
+      }
+    }
+    p {
+      width: 75%;
+      margin: 0 auto;
+      font-family: "Noto Serif";
+      font-size: 1.2rem;
+
+      @include xl {
+        font-size: 1.4rem;
+      }
+    }
   }
+}
+
+.gallery__slider {
+  position: fixed;
+  transform: translateY(100%);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  background: linear-gradient(to top, black, transparent 400%);
+  transition: .75s all ease;
+}
+
+.gallery__slider--close {
+  width: 2rem;
+  position: absolute;
+  z-index: 3;
+  right: -3rem;
+  top: -3rem;
+  cursor: pointer;
+
+  @include xl {
+    right: -7%;
+  }  
+}
+
+.gallery__slider--block {
+  width: 70vw;
+  height: 50vh;
+  position: relative;
+  transform: translateY(5%);
+  opacity: 0;
+  transition: .5s all ease;
+  @include xl {
+    height: 60vh;
+    width: 50vw;
+  }
+}
+
+.gallery__slider-nav {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid $gold;
+  position: absolute;
+  top: 25%;
+  transform: rotate(45deg);
+  @include xl {
+    top: 40%;
+  }
+}
+
+.gallery__slider-nav--next {
+  right: -2rem;
+  border-left: none;
+  border-bottom: none;
+  @include xl {
+    right: -7%;
+  }
+}
+
+.gallery__slider-nav--back {
+  left: -2rem;
+  border-right: none;
+  border-top: none;
+  @include xl {
+    left: -7%;
+  }
+}
+
+.show {
+  display: flex;
+}
+
+.gallerySliderOpen {
+  transform: translateY(0%);
+  transition: .75s all ease;
+}
+
+.gallerySliderBlockOpen {
+  opacity: 1;
+  transform: translateY(0);
+  transition: .75s all ease;
 }

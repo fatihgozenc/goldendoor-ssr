@@ -1,7 +1,7 @@
 import React from 'react';
 import LoopingRow from './LoopingRow'
 
-const LoopingGallery = ({ data }) => {
+const LoopingGallery = ({ data, windowWidth, windowHeight }) => {
 
 	//FUNCTION FOR DISTRIBUTING DATA INTO EQUAL ROWS FROM GIVEN JSON.
 	const distributeImageData = (arr, rows) => {
@@ -19,15 +19,6 @@ const LoopingGallery = ({ data }) => {
 		return slicedData;
 	};
 
-	const windowObject = React.useRef();
-	const [windowWidth, setWindowWidth] = React.useState(0);
-	const [windowHeight, setWindowHeight] = React.useState(0);
-
-	React.useEffect(()=>{
-		setWindowWidth(windowObject.current.getBoundingClientRect().width)
-		setWindowHeight(windowObject.current.getBoundingClientRect().height)
-	})
-
 	//I WANT 4 COLUMNS SO THIS NEEDS TO BE TYPED.
 	const loopingRowData = distributeImageData(data, windowWidth > 1600 ? 4 : 3);
 
@@ -43,7 +34,6 @@ const LoopingGallery = ({ data }) => {
 					data={rowData} />
 			))}
 		</div>
-		<div ref={windowObject} className="window"/>
 		</>
 	)
 };

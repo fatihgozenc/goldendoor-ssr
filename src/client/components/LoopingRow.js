@@ -1,13 +1,19 @@
 import React from 'react';
 import LoopingItem from './LoopingItem';
-import useCountRenders from '../utils/useCountRenders'
 
 const openCarousel = (e) => {
 	const imgID = e.currentTarget.classList[1];
 	const mainContainer = e.currentTarget.parentElement.parentElement.parentElement;
+	mainContainer.lastElementChild.classList.add('show')
+	setTimeout(() => {
+		mainContainer.lastElementChild.classList.add('gallerySliderOpen')
+		setTimeout(() => {
+			mainContainer.lastElementChild.lastElementChild.classList.add('gallerySliderBlockOpen')
+		}, 750);
+	}, 10);
 	const elementInCarousel = mainContainer.lastElementChild.getElementsByClassName(`img-${imgID}`);
 	const elementInCarouselIndex = elementInCarousel[0].getAttribute('slideindex');
-	mainContainer.lastElementChild.lastElementChild.lastElementChild.children[elementInCarouselIndex].click();
+	mainContainer.lastElementChild.lastElementChild.lastElementChild.lastElementChild.children[elementInCarouselIndex].click();
 }
 
 //FUNCTION FOR CLONING THE CHILDREN OF A DOM NODE.
