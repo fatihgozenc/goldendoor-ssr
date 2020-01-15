@@ -1,0 +1,14 @@
+.gallery{
+	position: relative;
+	overflow: hidden;
+}
+
+.transition_container {
+	@include xl {
+		width: 99.8vw;
+	}
+}
+
+.looping_gallery {
+	overflow: hidden;
+}

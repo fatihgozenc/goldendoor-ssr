@@ -1,0 +1,15 @@
+@import 'looping_gallery';
+@import 'looping_gallery_row';
+@import 'looping_gallery_item';
+
+.gallery__slider--wrapper {
+  height: 65vh;
+
+  img {
+    height: 45vh;
+  }
+  
+  .carousel__inner-slide {
+    text-align: center;
+  }
+}

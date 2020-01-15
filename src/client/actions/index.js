@@ -106,6 +106,17 @@ export const fetchTeam = () => async (dispatch, getState, axiosInstance) => {
 	});
 };
 
+export const FETCH_GALLERY = 'fetch_gallery';
+export const fetchGallery = () => async (dispatch, getState, axiosInstance) => {
+
+	const res = await axiosInstance.get('/gallery');
+
+	dispatch({
+		type: FETCH_GALLERY,
+		payload: res
+	});
+};
+
 function getPageNumber(slug) {
 	const slugPattern = /(\d+)/;
 	const filteredSlug = slug.match(slugPattern);
@@ -123,7 +134,6 @@ export const fetchReferences = () => async (dispatch, getState, axiosInstance) =
 		payload: res
 	});
 };
-
 
 export const FETCH_REFERENCE = 'fetch_reference';
 export const fetchReference = () => async (dispatch, getState, axiosInstance) => {

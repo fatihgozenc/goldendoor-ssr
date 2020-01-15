@@ -9,6 +9,7 @@ import TeamPage from './pages/TeamPage';
 import ServicesPage from './pages/ServicesPage';
 import ReferencesPage from './pages/ReferencesPage';
 import ReferencePage from './pages/ReferencePage';
+import GalleryPage from './pages/GalleryPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 export default [
@@ -49,6 +50,10 @@ export default [
 			{
 				...ServicesPage,
 				path: ["/leistungen", "/en/leistungen"]
+			},
+			{
+				...GalleryPage,
+				path: ["/galerie", "/en/galerie"]
 			},
 			{
 				...ReferencesPage,

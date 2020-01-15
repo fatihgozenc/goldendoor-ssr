@@ -6,6 +6,7 @@ import contactReducer from './contactReducer';
 import careerReducer from './careerReducer';
 import teamReducer from './teamReducer';
 import servicesReducer from './servicesReducer';
+import galleryReducer from './galleryReducer';
 import locationsReducer from './locationsReducer';
 import locationReducer from './locationReducer';
 import referencesReducer from './referencesReducer';
@@ -17,6 +18,7 @@ export default combineReducers({
 	aboutus: aboutusReducer,
 	contact: contactReducer,
 	career: careerReducer,
+	gallery: galleryReducer,
 	team: teamReducer,
 	services: servicesReducer,
 	references: referencesReducer,

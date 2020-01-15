@@ -69,3 +69,13 @@ input {
 	position: absolute;
 	visibility: hidden;
 }
+
+.window {
+	z-index: -2;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	position: absolute;
+	overflow: hidden;
+}
