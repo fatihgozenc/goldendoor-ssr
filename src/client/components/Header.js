@@ -73,7 +73,7 @@ const Header = ({ data, logo, lang, pathname }) => {
 							className="panel__lang-selector"
 							onClick={changeLang}>{`${lang.toUpperCase()}▾`}
 						</button>
-						<a href={lang === 'de' ? `/en${pathname}` : `${pathname.split('/en')[1]}`}
+						<a href={lang === 'de' ? `/en${pathname}` : `${pathname.split('/en')[1] === '' ? '/' : '/'}`}
 							ref={langSelection}
 							className="panel__lang-selected"
 							onClick={setLang}><span>{(lang === 'de' ? 'EN' : 'DE')}</span>

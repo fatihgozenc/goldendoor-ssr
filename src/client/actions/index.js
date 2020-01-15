@@ -45,9 +45,8 @@ export const fetchLocations = () => async (dispatch, getState, axiosInstance) =>
 
 function getSubitemSlug(slug) {
 	const slugPattern = /(\/.*)(\/.*)/i;
-	const filteredSlug = slug.match(slugPattern)[2];
-	// return language === 'en' ? filteredSlug + '-en' : filteredSlug;
-	return filteredSlug;
+	const filteredSlug = slug.match(slugPattern);
+	return filteredSlug !== null ? filteredSlug[2] : null;
 }
 
 export const FETCH_LOCATION = 'fetch_location';
