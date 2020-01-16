@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Icon from '../components/Icon';
+import parse from 'html-react-parser';
 
 const IMG_WIDTH = 300;
 const IMG_HEIGHT = 300;
@@ -178,7 +180,7 @@ const Carousel = (props) => {
 
 	const loadCarousel = () => {
 		return (
-			<div className="carousel__3D">
+			<div className={`carousel__3D carousel__3D--${props.name}`}>
 				<ul ref={wrapper}
 					className="carousel__wrapper"
 					style={{
@@ -211,8 +213,12 @@ const Carousel = (props) => {
 						})
 					}
 				</ul>
-				<div className="carousel__infos">
-					{
+				<div 
+					className={`carousel__infos carousel__infos--${props.name}`}>
+					{props.name === "team" 
+
+						? ( 
+
 						props.data.map((item, key) => (
 							key === middleImageKey &&
 							<div key={key} className="infos__item">
@@ -222,8 +228,32 @@ const Carousel = (props) => {
 								<p>{item.mitarbeiter_telefon}</p>
 							</div>
 						))
+
+						):(
+
+							props.data.map((item, key) => (
+								key === middleImageKey &&
+								<div key={key} className="infos__item infos__item--downloads">
+									<h4>{item.name}</h4>
+									<a href={item.link} target="_blank" className="singleloc__button">
+											<Icon type="factsheet" name="DOWNLOAD"/>
+									</a>
+								</div>
+							))
+
+						)
+
 					}
 				</div>
+
+				{
+					props.name === "downloads" &&
+					<div className="download__section--factsheet">
+						<h2>Factsheets</h2>
+						{parse(props.content.Inhalt)}
+					</div>
+				}
+
 			</div>
 		);
 	};

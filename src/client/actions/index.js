@@ -116,6 +116,17 @@ export const fetchGallery = () => async (dispatch, getState, axiosInstance) => {
 	});
 };
 
+export const FETCH_DOWNLOADS = 'fetch_downloads';
+export const fetchDownloads = () => async (dispatch, getState, axiosInstance) => {
+
+	const res = await axiosInstance.get('/downloads');
+
+	dispatch({
+		type: FETCH_DOWNLOADS,
+		payload: res
+	});
+};
+
 function getPageNumber(slug) {
 	const slugPattern = /(\d+)/;
 	const filteredSlug = slug.match(slugPattern);

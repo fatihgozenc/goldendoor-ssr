@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { fetchTeam } from '../actions';
 import Hero from '../components/Hero'
-import parse from 'html-react-parser';
 import Carousel from '../components/Carousel'
 
 const TeamPage = () => {
@@ -22,6 +21,7 @@ const TeamPage = () => {
 			<Hero data={teamData} />
 			<div id="content" className="team">
 				<Carousel
+					name="team"
 					data={data}
 					imgList={images}
 					img_width={250}

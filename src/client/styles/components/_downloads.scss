@@ -1,0 +1,64 @@
+.download__section--factsheet {
+  margin: 0 8%;
+
+  @include md {
+    margin: 0 8% 8% 8%;
+  }
+
+  @include lg {
+    margin: 8%;
+  }
+
+  h2 {
+    @include title;
+    @include md {
+      font-size: 3.6rem;
+    }
+  }
+
+  p {
+    font-family: "Noto Serif";
+    line-height: 1.6;
+  }
+}
+
+.presskit {
+  margin: 0 8%;
+  padding: 10% 0;
+
+  @include md {
+    margin: 0 8%;
+  }
+
+  @include xl {
+    display: flex;
+    align-items: center;
+
+    & .presskit__block {
+      flex: 50%;
+
+      &:last-child{
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
+  }
+
+  @include xxl {
+    transform: scale(1.5);
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  h2 {
+    @include title;
+    @include md {
+      font-size: 3.6rem;
+    }
+  }
+
+  p {
+    font-family: "Noto Serif";
+    line-height: 1.6;
+  }
+}

@@ -13,6 +13,7 @@
     @include display_text;
     font-style: normal;
     position: absolute;
+    white-space: nowrap;
     left: 50%;
     transform: translate(-50%, -50%);
     top: 50%;

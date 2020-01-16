@@ -78,9 +78,74 @@
 	}
 }
 
+.carousel__3D--downloads {
+	height: 55rem;
+	z-index: 1;
+
+	@include md {
+		flex-direction: column-reverse;
+		height: 40rem;
+	}
+	@include xl {
+		height: initial;
+		flex-direction: row;
+		max-width: 1280px;
+    width: auto;
+	}
+
+	@include xxl {
+		width: 64%;
+	}
+
+	@include huge {
+		max-width: 1520px;
+	}
+}
+
+.carousel__infos--downloads {
+	bottom: 12rem;
+	@include md {
+		bottom: -10rem;
+	}
+	@include xl {
+		position: absolute;
+		bottom: -4rem;
+		left: 280px;
+		text-align: center;
+	}
+}
+
+.infos__item--downloads {
+	animation: appearSmall .5s cubic-bezier(.49,.04,.28,.99);
+	height: 25rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	@include md {
+		height: 35rem;
+	}
+	@include xl {
+		height: 40rem;
+		width: 20rem;
+	}
+}
+
+
 @keyframes appear {
 	0%{
 		transform: translateY(30%);
+		opacity: 0;
+	}
+	100%{
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes appearSmall {
+	0%{
+		transform: translateY(5%);
 		opacity: 0;
 	}
 	100%{

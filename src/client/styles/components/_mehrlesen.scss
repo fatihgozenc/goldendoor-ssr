@@ -8,6 +8,7 @@
 
 	.mehrlesen_text {
 		font-weight: 900;
+		line-height: 1.6;
 		transition: inherit;
 	}
 
@@ -42,12 +43,12 @@
 @mixin mehrlesen_hover {
 	&:hover {
 		.mehrlesen_text {
-			letter-spacing: 5px;
+			letter-spacing: 3.5px;
 			transition: .35s all cubic-bezier(.58, .12, .17, .94);
 		}
 
 		.mehrlesen_graph {
-			width: 160px;
+			width: 120px;
 			transition: .35s all cubic-bezier(.58, .12, .17, .94);
 		}
 	}
