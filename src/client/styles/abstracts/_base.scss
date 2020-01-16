@@ -6,6 +6,10 @@ html {
 	-webkit-font-smoothing: subpixel-antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: $grad;
+
+	@include xxl {
+		font-size: 72%;
+	}
 }
 
 body {
@@ -15,6 +19,8 @@ body {
 	font-family: 'Lato', sans-serif;
 	color: $gold;
 	scroll-behavior: smooth;
+
+	
 }
 
 #root {

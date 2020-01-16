@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import Breadcrumb from '../components/Breadcrumb';
 import { fetchContact } from '../actions';
 import DatePicker from 'react-datepicker';
+import MapContainer from '../components/MapContainer';
 
 const ContactPage = () => {
 
@@ -304,6 +305,8 @@ const ContactPage = () => {
 				</div>
 
 			</div>
+		
+			<MapContainer/>
 		</>
 	)
 };

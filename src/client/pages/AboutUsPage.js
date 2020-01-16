@@ -26,8 +26,8 @@ const AboutUsPage = () => {
 				</div>
 
 				<div className="extratext">
-					{parse(extra_text_1)}
-					{parse(extra_text_2)}
+					{/* {parse(extra_text_1)}
+					{parse(extra_text_2)} */}
 				</div>
 
 				<div className="story story--left">

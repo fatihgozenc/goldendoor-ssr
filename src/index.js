@@ -22,7 +22,6 @@ const getLang = (browserCookie, requestPath) => {
 		return 'de'
 	}
 }
-
 app.use(compression());
 app.use(express.static('public'));
 

@@ -31,18 +31,8 @@ module.exports = {
 			},
 			{
 				test: /\.(sa|sc|c)ss$/,
-				use: [
-					{
-						loader: MiniCssExtractPlugin.loader,
-						options: {
-							publicPath: (resourcePath, context) => {
-								hmr: process.env.NODE_ENV === 'development'
-							}
-						},
-					},
-					'css-loader',
-					'sass-loader'
-				]
+				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+				
 			}
 		]
 	}
