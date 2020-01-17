@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Breadcrumb from '../components/Breadcrumb';
+import parse from 'html-react-parser';
+import isBrowser from 'is-in-browser';
 import { fetchContact } from '../actions';
 import DatePicker from 'react-datepicker';
 import MapContainer from '../components/MapContainer';
 
-const ContactPage = () => {
+if (isBrowser) {
+  require ('react-datepicker/dist/react-datepicker.min.css')
+}
 
+const ContactPage = () => {
+	const contactInfo = useSelector(state => state.layout.footer.info);
 	const data = useSelector(state => state.contact);
 	const steps = [data.fields.kontakt_stufe_1, data.fields.kontakt_stufe_2, data.fields.kontakt_stufe_3];
 
@@ -305,8 +311,23 @@ const ContactPage = () => {
 				</div>
 
 			</div>
-		
-			<MapContainer/>
+			
+			<div className="contact__info">
+				<div className="contact__info--map">
+					<MapContainer/>
+				</div>
+				<div className="contact__info--address">
+						<div className="contact__info--logo">
+							<img src={contactInfo.logo} alt="Golden Door Logo"/>
+						</div>
+						{Object.values(contactInfo.address).map((item, key) => (
+							<div key={key}>{parse(item)}</div>
+						))}
+						<a href={`tel:${contactInfo.telefon}`}>{contactInfo.telefon}</a>
+						<a href={`mailto:${contactInfo.email.toLowerCase()}`}>{contactInfo.email}</a>
+				</div>
+			</div>
+			
 		</>
 	)
 };

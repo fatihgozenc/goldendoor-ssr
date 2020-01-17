@@ -6,15 +6,11 @@ import Carousel from '../components/Carousel'
 
 const TeamPage = () => {
 	const teamData = useSelector(state => state.team);
-
 	const data = teamData.fields.mitarbeiter_info;
 	const lastFourOfData = data.slice(data.length - 2, data.length);
-	const combinedData = [...lastFourOfData, ...data];
 	const images = data.map(item => (
 		item.mitarbeiter_bild
 	))
-
-	console.log(teamData)
 
 	return (
 		<>

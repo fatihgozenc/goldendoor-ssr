@@ -102,6 +102,22 @@ const Icon = ({type, name}) => {
             C19.8,1.7,19.8,1.1,19.4,0.7z"/>
           </svg>
         </i>
+      );
+
+    case "mapMarker":
+      return(
+        <i className={`icon--${type}`}>
+          <svg version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 24 24" >
+            <defs>
+              <linearGradient id="linear-gradient" x1="10.8737" y1="18.4454" x2="12.5293" y2="4.5317" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stopColor="#632948"/>
+                <stop offset="1" stopColor="#2D1D46"/>
+              </linearGradient>
+            </defs>
+            <path className="st1" fill="url(#linear-gradient)" d="M12,2C8.1,2,5,5.1,5,9c0,5.2,7,13,7,13s7-7.8,7-13C19,5.1,15.9,2,12,2z M12,12.7c-1.8,0-3.2-1.4-3.2-3.2
+              s1.4-3.2,3.2-3.2s3.2,1.4,3.2,3.2S13.8,12.7,12,12.7z"/>
+          </svg>
+        </i>
       )
 
 		default:

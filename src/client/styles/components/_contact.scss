@@ -385,3 +385,68 @@
 .hidden {
   display: none;
 }
+
+.contact__info{
+  display: flex;
+  flex-direction: column-reverse;
+  height: auto;
+
+  .contact__info--map {
+    height: 50vh;
+  }
+
+  @include md {
+    flex-direction: row;
+    align-items: center;
+    padding-top: 5%;
+  }
+}
+
+.contact__info--map {
+  flex: 50%;
+  height: 50vh;
+  @include md {
+    flex: 75%;
+    border: 1px solid $gold;
+    border-left: none;
+  }
+}
+
+.contact__info--address {
+  flex: 50%;
+  @include display_text;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin: 8%;
+
+  a {
+    display: block;
+  }
+
+  @include md {
+    flex: 25%;
+    margin: 0 8%;
+  }
+}
+
+.contact__info--logo {
+  height: 15rem;
+  padding-bottom: 1rem;
+  position: relative;
+  
+  &::after {
+    content: " ";
+    height: 1px;
+    display: block;
+    background: $gold;
+    width: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+img {
+  margin-left: -.7rem;
+  height: 100%;
+}

@@ -35,7 +35,7 @@ const Opening = ({data}) => {
                         ))}
                         
                     </Slider>
-                    <DotGroup dotNumbers={data.length}/>
+                    {/* <DotGroup dotNumbers={data.length}/> */}
                 </CarouselProvider>
             </div>
         </div>

@@ -30,6 +30,14 @@
 	transition: .5s all cubic-bezier(.49,.08,.23,.98);
 }
 
+.icon--mapMarker {
+  display: inline-block;
+  position: relative;
+  height: 4rem;
+  width: 4rem;
+
+}
+
 .icon--view {
   height: 2rem;
   width: 2rem;
