@@ -2,8 +2,7 @@ import React from 'react';
 import Scene from './Scene';
 import Galaxy from './Galaxy';
 import parse from 'html-react-parser';
-import { NavLink } from 'react-router-dom';
-import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 
 const Opening = ({data}) => {
     return (
@@ -35,7 +34,6 @@ const Opening = ({data}) => {
                         ))}
                         
                     </Slider>
-                    {/* <DotGroup dotNumbers={data.length}/> */}
                 </CarouselProvider>
             </div>
         </div>

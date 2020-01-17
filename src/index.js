@@ -4,7 +4,6 @@ require('dotenv').config();
 import "regenerator-runtime/runtime";
 import express from 'express';
 import compression from 'compression';
-import proxy from 'express-http-proxy';
 import { matchRoutes } from 'react-router-config';
 
 import renderer from './helpers/renderer';
@@ -14,16 +13,13 @@ import getLang from './helpers/getLang';
 
 const app = express();
 
+console.log(process.env.NODE_ENV)
+
 app.use(compression());
 
 app.use(express.static('public'));
 
 app.get('*', (req, res, next) => {
-
-	res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-  res.header('Expires', '-1');
-  res.header('Pragma', 'no-cache');
-
 	const reqPattern = /\/en/;
 	const filteredReq = req.path.match(reqPattern) ? req.path.match(reqPattern)[0] : null;
 	const lang = getLang(req.headers.cookie, filteredReq)
