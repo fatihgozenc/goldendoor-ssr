@@ -14,6 +14,10 @@ const LocationPage = () => {
     infoPanel.current.classList.toggle('changePanel');
   }
 
+  const openMap = (e) => {
+    console.log(e.currentTarget)
+  }
+
   return (
   <>
     <h1 className="seo__hidden">{data.title}</h1>
@@ -34,7 +38,9 @@ const LocationPage = () => {
               <div className="singleloc__info--buttons">
                 <a href="/kontakt" className="singleloc__button"><Icon type="anfragen" name={data.fields.buttongroup.anfragen}/></a>
                 <a href={data.fields.location_info.location_factsheet} className="singleloc__button"><Icon type="factsheet" name={data.fields.buttongroup.datenblatt}/></a>
-                <a href={data.fields.karte_link} className="singleloc__button"><Icon type="karte" name={data.fields.buttongroup.karte}/></a>
+                <a href="#karte" onClick={openMap} className="singleloc__button">
+                  <Icon type="karte" name={data.fields.buttongroup.karte}/>
+                </a>
               </div>
               <div className="singleloc__info--socialmedia">
                 <a href={data.fields.social_media.facebook} className="socialmedia__button"><Icon type="facebook"/></a>

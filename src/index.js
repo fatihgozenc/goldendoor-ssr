@@ -1,28 +1,21 @@
+'use strict';
+
+require('dotenv').config();
 import "regenerator-runtime/runtime";
 import express from 'express';
 import compression from 'compression';
-import renderer from './helpers/renderer';
+import proxy from 'express-http-proxy';
 import { matchRoutes } from 'react-router-config';
+
+import renderer from './helpers/renderer';
 import Routes from './client/Routes';
 import createStore from './helpers/createStore';
+import getLang from './helpers/getLang';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-const getLang = (browserCookie, requestPath) => {
-	if (requestPath === '/en/' || requestPath === '/en') {
-		return 'en'
-	} else if (requestPath === null || '/') {
-		return 'de'
-	} else if (browserCookie === 'lang=de') {
-		return 'de'
-	} else if (browserCookie === 'lang=en') {
-		return 'en'
-	} else {
-		return 'de'
-	}
-}
 app.use(compression());
+
 app.use(express.static('public'));
 
 app.get('*', (req, res, next) => {
@@ -72,7 +65,7 @@ app.get('*', (req, res, next) => {
 
 });
 
-app.listen(PORT, () => {
-	console.log('Listening on port 3000');
+app.listen(process.env.PORT, () => {
+	console.log('Listening on port ' + process.env.PORT);
 });
 

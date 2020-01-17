@@ -1,8 +1,9 @@
 import React from 'react';
 import parse from 'html-react-parser';
+import registerToNewsletter from '../../helpers/registerToNewsletter';
 
 const Newsletter = ({data}) => {
-
+  // registerToNewsletter
   return (
     <div id="newsletter" className="newsletter">
 

@@ -6,7 +6,10 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports = {
 	// TELL WEBPACK TO RUN BABEL ON EVERY FILE
 	// IT RUNS THROUGH
-	mode: 'development',
+	mode: process.env.NODE_ENV,
+	node: {
+		fs: "empty"
+ 	},
 	optimization: {
 		minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
 	},
@@ -32,7 +35,13 @@ module.exports = {
 			{
 				test: /\.(sa|sc|c)ss$/,
 				use: [
-					MiniCssExtractPlugin.loader,
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							hmr: process.env.NODE_ENV === 'development',
+              reloadAll: true,
+						},
+					},
 					'css-loader',
 					'sass-loader'
 				]
