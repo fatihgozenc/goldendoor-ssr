@@ -391,10 +391,6 @@
   flex-direction: column-reverse;
   height: auto;
 
-  .contact__info--map {
-    height: 50vh;
-  }
-
   @include md {
     flex-direction: row;
     align-items: center;
@@ -404,7 +400,7 @@
 
 .contact__info--map {
   flex: 50%;
-  height: 50vh;
+  height: 75vh;
   @include md {
     flex: 75%;
     border: 1px solid $gold;

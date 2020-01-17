@@ -18,7 +18,7 @@ const Opening = ({data}) => {
                     naturalSlideHeight={125}
                     totalSlides={data.length}
                     isPlaying={true}
-                    interval={5000}
+                    interval={9000}
                     infinite={true}
                 >
                     <Slider className="home__slider--wrapper">
