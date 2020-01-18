@@ -19,6 +19,9 @@
 	@include xl {
 		align-items: center;
 	}
+	&:hover{
+		@include mehrlesen_hover;
+	}
 }
 
 .story__img {

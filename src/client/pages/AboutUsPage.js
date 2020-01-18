@@ -3,9 +3,10 @@ import { useSelector } from 'react-redux';
 import { fetchAboutUs } from '../actions';
 import Hero from '../components/Hero'
 import parse from 'html-react-parser';
+import MehrLesen from '../components/MehrLesen';
 
 const AboutUsPage = () => {
-
+	const lang = useSelector(state => state.layout.lang)
 	const aboutusData = useSelector(state => state.aboutus);
 	const story = aboutusData.fields.uber_uns_story;
 	const philosophy = aboutusData.fields.uber_uns_philosophy;
@@ -22,6 +23,18 @@ const AboutUsPage = () => {
 					<div className="story__content">
 						<h2 className="title__lg">{story.story_titel}</h2>
 						{parse(story.story_inhalt)}
+						{
+							lang === 'de'
+								? (
+									<a href="/referenzen">
+										<MehrLesen name={`ZUM REFEREZEN`} />
+									</a>
+								) : (
+									<a href="/en/referenzen">
+										<MehrLesen name={`TO REFERENCES`} />
+									</a>
+								)
+						}
 					</div>
 				</div>
 
@@ -34,6 +47,18 @@ const AboutUsPage = () => {
 					<div className="story__content">
 						<h2 className="title__lg">{philosophy.philosophy_titel}</h2>
 						{parse(philosophy.philosophy_inhalt)}
+						{
+							lang === 'de'
+								? (
+									<a href="/kontakt">
+										<MehrLesen name={`ZUM KONTAKT`} />
+									</a>
+								) : (
+									<a href="/en/kontakt">
+										<MehrLesen name={`TO CONTACT`} />
+									</a>
+								)
+						}
 					</div>
 					<div className="story__img backgroundImg" style={{ backgroundImage: "url(" + philosophy.philosophy_bild + ")" }} />
 				</div>

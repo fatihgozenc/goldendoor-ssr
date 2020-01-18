@@ -1,19 +1,18 @@
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
 	// TELL WEBPACK TO RUN BABEL ON EVERY FILE
 	// IT RUNS THROUGH
-	mode: 'development',
+	mode: 'production',
 	optimization: {
 		minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: devMode ? '[name].css' : '[name].[hash].css',
-			chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+			filename: '[name].css',
+			chunkFilename: '[id].css'
 		})
 	],
 	module: {
