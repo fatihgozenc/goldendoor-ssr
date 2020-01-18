@@ -6,6 +6,8 @@ import { matchRoutes } from 'react-router-config';
 import Routes from './client/Routes';
 import createStore from './helpers/createStore';
 
+import Loadable from 'react-loadable';
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -25,11 +27,7 @@ const getLang = (browserCookie, requestPath) => {
 app.use(compression());
 app.use(express.static('public'));
 
-app.get('*', (req, res, next) => {
-
-	res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-	res.header('Expires', '-1');
-	res.header('Pragma', 'no-cache');
+app.get('*', (req, res) => {
 
 	const reqPattern = /\/en/;
 	const filteredReq = req.path.match(reqPattern) ? req.path.match(reqPattern)[0] : null;
@@ -44,8 +42,6 @@ app.get('*', (req, res, next) => {
 			return new Promise((resolve, reject) => {
 				promise.then(resolve).catch(resolve);
 			});
-		} else {
-			next();
 		}
 	});
 
@@ -55,24 +51,19 @@ app.get('*', (req, res, next) => {
 
 		if (context.url) {
 			return (res.redirect(301, context.url))
-		} else {
-			next();
 		}
 
 		if (context.notFound) {
 			res.status(404);
-		} else {
-			next();
 		}
-
 		res.cookie('lang', lang)
 		res.send(content);
+	}).catch(err => console.log(err));
+
+});
+
+Loadable.preloadAll().then(() => {
+	app.listen(PORT, () => {
+		console.log('Listening on port 3000');
 	});
-
-
 });
-
-app.listen(PORT, () => {
-	console.log('Listening on port 3000');
-});
-

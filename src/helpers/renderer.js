@@ -1,21 +1,29 @@
 import React from 'react';
-import {renderToString} from 'react-dom/server';
-import {StaticRouter} from 'react-router-dom';
-import {Provider} from 'react-redux';
-import {renderRoutes} from 'react-router-config';
+import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { renderRoutes } from 'react-router-config';
 import serialize from 'serialize-javascript';
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import Routes from '../client/Routes';
+import Loadable from 'react-loadable';
+import { getBundles } from 'react-loadable/webpack'
+import stats from '../../build/react-loadable.json';
 
 export default (req, store, context) => {
+	let modules = [];
 	const content = renderToString(
-		<Provider store={store}>
-			<StaticRouter location={req.path} context={context}>
-				{renderRoutes(Routes)}
-			</StaticRouter>
-		</Provider>
+		<Loadable.Capture report={moduleName => modules.push(moduleName)}>
+			<Provider store={store}>
+				<StaticRouter location={req.path} context={context}>
+					{renderRoutes(Routes)}
+				</StaticRouter>
+			</Provider>
+		</Loadable.Capture>
 	);
 
+	console.log(modules);
+	let bundles = getBundles(stats, modules);
 	const helmet = Helmet.renderStatic();
 
 	return `
